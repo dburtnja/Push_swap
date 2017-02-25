@@ -1,8 +1,16 @@
-//
-// Created by Denys on 20.02.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_sort_algorithm.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/25 20:21:36 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/02/25 20:27:52 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../lib/Push_swap.h"
+#include "../Push_swap.h"
 
 int		find_instruction_a(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 {

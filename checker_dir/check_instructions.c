@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_instructions.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/25 19:10:28 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/02/25 19:10:37 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../libraries/Push_swap.h"
+#include "../Push_swap.h"
 
 void	apply_instruction(char *inst, t_doub_lst **a, t_doub_lst **b)
 {

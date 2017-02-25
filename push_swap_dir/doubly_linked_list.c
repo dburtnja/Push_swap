@@ -1,16 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   doubly_linked_list.c                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/25 19:10:49 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 19:11:02 by dburtnja         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by Denys on 21.02.2017.
+//
 
-#include "../Push_swap.h"
+#include "../lib/Push_swap.h"
 
 t_doub_lst	*lst_dup(t_doub_lst *head)
 {
@@ -38,7 +30,7 @@ void		free_lst(t_doub_lst **head)
 		p = p->next;
 		free(p->prev);
 	}
-	free(p);
+	free(p->prev);
 	*head = NULL;
 }
 

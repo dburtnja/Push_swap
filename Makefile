@@ -6,7 +6,7 @@
 #    By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 16:49:11 by dburtnja          #+#    #+#              #
-#    Updated: 2017/02/25 21:08:45 by dburtnja         ###   ########.fr        #
+#    Updated: 2017/02/25 22:07:24 by dburtnja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIB = libft/libft.a
 C_NAME = checker
 P_NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 C_SRC =	checker_dir/applay_instructions.c\
 		checker_dir/check_instructions.c\
 		checker_dir/doubly_linked_list.c\

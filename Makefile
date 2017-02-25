@@ -11,21 +11,24 @@
 # **************************************************************************** #
 
 LIB = libraries/libget_nex_line.a
+PREFIX = checker_dir/
 C_NAME = checker
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
-C_SRC =	checker/applay_instructions.c\
-		checker/check_instructions.c\
-		checker/doubly_linked_list.c\
-		checker/main.c
+CFLAGS = -Wall -Wextra -Werror
+C_SRC =	applay_instructions.c\
+		check_instructions.c\
+		doubly_linked_list.c\
+		main.c
 
 C_OBJ = $(C_SRC:.c=.o)
 
+C_SRC = $(PREFIX)$(C_SRC)
+
 all: $(C_NAME)
 
-$(C_NAME): $(OBJ)
-		@$(CC) $(CFLAGS) $(C_SRC)
-		@$(CC) $(CFLAGS) $(C_NAME) $(C_OBJ) $(LIB)
+$(C_NAME):
+		@$(CC) -c $(CFLAGS) $(PREFIX)$(C_SRC)
+		@$(CC) $(CFLAGS) -o $(C_NAME) $(C_OBJ) $(LIB)
 		
 clean:
 		@rm -f $(OBJ)

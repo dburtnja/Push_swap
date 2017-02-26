@@ -37,6 +37,8 @@ void					rotate_stack(t_doub_lst **head);
 void					rev_rotate_stack(t_doub_lst **head);
 void					apply_to_both(t_doub_lst **a, t_doub_lst **b,
 									   void (*f)(t_doub_lst **stack));
+void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag);
+
 
 void					ps_swap_stack(t_doub_lst **stack);
 void					ps_push_stack(t_doub_lst **from, t_doub_lst **into);

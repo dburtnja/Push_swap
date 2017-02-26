@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 		a = make_lst(argc - 1, &argv[1]);
 		find_sort_algorithm(&a, &b);
 		ft_putendl(check_if_sort_a(a) == 1 ? "OK" : "KO"); // remove before
-		// finish
+		print_stacks(a, b, 0);// finish
 		free_lst(&a);
 	}
 	return 0;

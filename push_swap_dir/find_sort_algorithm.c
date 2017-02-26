@@ -57,7 +57,7 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 
 int		find_instruction_b(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 {
-	if ((*b)->nbr >= midd_nbr)
+	if ((*b)->nbr > midd_nbr)
 	{
 		ps_push_stack(b, a);
 		ft_putendl("pa");

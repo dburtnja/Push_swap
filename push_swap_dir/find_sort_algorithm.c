@@ -55,13 +55,23 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 	}
 }
 
+int		have_midd_nbr(t_doub_lst *lst, int midd_nbr)
+{
+	while (lst)
+	{
+		if (lst->nbr >= midd_nbr)
+			return (1);
+		lst = lst->next;
+	}
+	return (0);
+}
+
 int		find_instruction_b(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 {
 	if ((*b)->nbr >= midd_nbr)
 	{
 		ps_push_stack(b, a);
 		ft_putendl("pa");
-		return (1);
 	}
 	if (rr)
 	{
@@ -73,7 +83,7 @@ int		find_instruction_b(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 		ps_rotate_stack(b);
 		ft_putendl("rb");
 	}
-	return (0);
+	return (have_midd_nbr(*b, midd_nbr) ? 0 : 1);
 }
 
 void	dividing_lst_b(t_doub_lst *a, t_doub_lst **b)
@@ -87,8 +97,8 @@ void	dividing_lst_b(t_doub_lst *a, t_doub_lst **b)
 	rr = if_rev_rotate(*b, midd_nbr, size);
 	while (size > 0)
 	{
-		if (find_instruction_b(&a, b, midd_nbr, !rr) == 1)
-			size--;
+		if (find_instruction_b(&a, b, midd_nbr, !rr))
+			break ;
 	}
 	find_sort_algorithm(&a, b);
 	while (a)
@@ -106,4 +116,3 @@ void	find_sort_algorithm(t_doub_lst **a, t_doub_lst **b)
 	if (*b && (*b)->size > 2 && check_if_sort_b(*b) == 0)
 		dividing_lst_b(NULL, b);
 }
-

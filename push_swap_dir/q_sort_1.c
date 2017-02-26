@@ -24,12 +24,12 @@ void	sort_small(t_doub_lst *a, t_doub_lst *b)
 		ps_apply_to_both(&a, &b, &ps_swap_stack);
 		ft_putendl("ss");
 	}
-	if (a_true)
+	else if (a_true)
 	{
 		ps_swap_stack(&a);
 		ft_putendl("sa");
 	}
-	if (b_true)
+	else if (b_true)
 	{
 		ps_swap_stack(&b);
 		ft_putendl("sb");

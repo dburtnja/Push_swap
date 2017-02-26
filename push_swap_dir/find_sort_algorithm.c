@@ -20,7 +20,7 @@ int		find_instruction_a(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 		ft_putendl("pb");
 		return (1);
 	}
-	if (rr)
+	else if (rr)
 	{
 		ps_rev_rotate_stack(a);
 		ft_putendl("rra");
@@ -47,7 +47,7 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 		if (find_instruction_a(a, &b, midd_nbr, rr) == 1)
 			size--;
 	}
-	find_sort_algorithm(a, &b);
+	find_sort_algorithm(a, &b); //if a sort - send NULL
 	while (b)
 	{
 		ps_push_stack(&b, a);
@@ -68,12 +68,12 @@ int		have_midd_nbr(t_doub_lst *lst, int midd_nbr)
 
 int		find_instruction_b(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 {
-	if ((*b)->nbr >= midd_nbr)
+	if ((*b)->nbr >= midd_nbr) //if midd nbr only 1 finn it
 	{
 		ps_push_stack(b, a);
 		ft_putendl("pa");
 	}
-	if (rr)
+	else if (rr)
 	{
 		ps_rev_rotate_stack(b);
 		ft_putendl("rrb");

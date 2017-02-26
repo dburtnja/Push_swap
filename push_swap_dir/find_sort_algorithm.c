@@ -37,14 +37,14 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 {
 	int 	midd_nbr;
 	int 	size;
-	int 	rr;
+
 
 	size = (*a)->size / 2;
 	midd_nbr = middle_nbr(*a, 0);
-	rr = if_rev_rotate(*a, midd_nbr, size);
+	//rr = if_rev_rotate(*a, midd_nbr, size);
 	while (size > 0)
 	{
-		if (find_instruction_a(a, &b, midd_nbr, rr) == 1)
+		if (find_instruction_a(a, &b, midd_nbr, 0) == 1)
 			size--;
 	}
 	find_sort_algorithm(a, &b); //if a sort - send NULL

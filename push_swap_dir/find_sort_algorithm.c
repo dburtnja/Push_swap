@@ -25,7 +25,7 @@ int		find_instruction_a(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 		ps_rev_rotate_stack(a);
 		ft_putendl("rra");
 	}
-	else
+	else if (!rr)
 	{
 		ps_rotate_stack(a);
 		ft_putendl("ra");
@@ -78,7 +78,7 @@ int		find_instruction_b(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 		ps_rev_rotate_stack(b);
 		ft_putendl("rrb");
 	}
-	else
+	else if (!rr)
 	{
 		ps_rotate_stack(b);
 		ft_putendl("rb");

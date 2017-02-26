@@ -40,7 +40,7 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 	int 	rr;
 
 	size = (*a)->size / 2;
-	midd_nbr = middle_nbr(*a);
+	midd_nbr = middle_nbr(*a, 0);
 	rr = if_rev_rotate(*a, midd_nbr, size);
 	while (size > 0)
 	{
@@ -83,7 +83,7 @@ void	dividing_lst_b(t_doub_lst *a, t_doub_lst **b)
 	int 	rr;
 
 	size = (*b)->size / 2;
-	midd_nbr = middle_nbr(*b);
+	midd_nbr = middle_nbr(*b, 1);
 	rr = if_rev_rotate(*b, midd_nbr, size);
 	while (size > 0)
 	{

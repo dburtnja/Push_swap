@@ -36,13 +36,13 @@ void	sort_small(t_doub_lst *a, t_doub_lst *b)
 	}
 }
 
-int 	middle_nbr(t_doub_lst *head)
+int 	middle_nbr(t_doub_lst *head, int f)
 {
 	int 		i;
 	t_doub_lst	*sort_lst;
 
 	sort_lst = bubble_sort(lst_dup(head));
-	i = head->size / 2;
+	i = head->size / 2 - (f && head->size % 2 == 0 ? 1 : 0);
 	while (i > 0)
 	{
 		sort_lst = sort_lst->next;

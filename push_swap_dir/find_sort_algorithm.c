@@ -106,7 +106,7 @@ void	dividing_lst_b(t_doub_lst *a, t_doub_lst **b)
 		ft_putendl("pb");
 	}
 }
-
+//test branch
 void	find_sort_algorithm(t_doub_lst **a, t_doub_lst **b)
 {
 	sort_small(*a, *b);

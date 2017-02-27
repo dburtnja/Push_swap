@@ -31,8 +31,6 @@ t_doub_lst				*bubble_sort(t_doub_lst *lst);
 void					error(void);
 int						check_instructions(t_doub_lst **a, t_doub_lst **b,
 											  int *flag);
-int						find_instruction_a(t_doub_lst **a, t_doub_lst **b,
-											  int midd_nbr, int rr);
 void					sort_a(t_doub_lst **a, t_doub_lst *b);
 void					sort_b(t_doub_lst **a, t_doub_lst **b);
 void					swap_stack(t_doub_lst **stack);

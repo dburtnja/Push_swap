@@ -14,8 +14,18 @@
 
 void	error(void)
 {
-	ft_putendl(RED"Error"RESET);
+	write(1, "Error\n", 6);
 	exit(1);
+}
+
+void	if_same(int nbr, t_doub_lst *lst)
+{
+	while (lst)
+	{
+		if (lst->nbr == nbr)
+			error();
+		lst = lst->next;
+	}
 }
 
 int		check_if_num(char *str)
@@ -39,6 +49,7 @@ t_doub_lst	*make_lst(int size, char **arg)
 	while (i < size)
 	{
 		p = new_lst(check_if_num(arg[i]));
+		if_same(p->nbr, head);
 		add_lst_to_back(&head, p);
 		i++;
 	}

@@ -52,6 +52,6 @@ int						check_if_sort_b(t_doub_lst *b);
 
 void					sort_small(t_doub_lst *a, t_doub_lst *b);
 int						middle_nbr(t_doub_lst *head, int f);
-int						if_rev_rotate(t_doub_lst *lst, int midd_nbr, int size);
+int						rev(t_doub_lst *lst, int midd_nbr, int size);
 
 #endif

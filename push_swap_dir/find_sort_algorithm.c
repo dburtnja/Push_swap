@@ -20,12 +20,12 @@ int		find_instruction_a(t_doub_lst **a, t_doub_lst **b, int midd_nbr, int rr)
 		ft_putendl("pb");
 		return (1);
 	}
-	else if (rr)
+	if (rr)
 	{
 		ps_rev_rotate_stack(a);
 		ft_putendl("rra");
 	}
-	else if (!rr)
+	else
 	{
 		ps_rotate_stack(a);
 		ft_putendl("ra");

@@ -51,20 +51,31 @@ int 	middle_nbr(t_doub_lst *head, int f)
 	return (sort_lst->nbr);
 }
 
-int		if_rev_rotate(t_doub_lst *lst, int midd_nbr, int size)
+int		rev(t_doub_lst *lst, int midd_nbr, int size)
 {
 	int 	left;
+	int 	right;
 	int 	i;
 
 	i = 0;
 	left = 0;
-	while (i < size)
+	right = 0;
+	while (lst->next)
 	{
-		if (midd_nbr > lst->nbr)
-			left++;
+		if (midd_nbr > lst->nbr && left == 0)
+			left = i;
+		lst = lst->next;
 		i++;
 	}
-	if (size - left > left)
+	i = 0;
+	while (lst)
+	{
+		if (midd_nbr > lst->nbr && right == 0)
+			right = i;
+		lst = lst->prev;
+		i++;
+	}
+	if (left > right)
 		return (1);
 	return (0);
 }

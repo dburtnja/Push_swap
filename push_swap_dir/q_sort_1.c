@@ -40,15 +40,19 @@ int 	middle_nbr(t_doub_lst *head, int f)
 {
 	int 		i;
 	t_doub_lst	*sort_lst;
+	t_doub_lst	*p;
 
 	sort_lst = bubble_sort(lst_dup(head));
 	i = head->size / 2 - (f && head->size % 2 == 0 ? 1 : 0);
+	p = sort_lst;
 	while (i > 0)
 	{
-		sort_lst = sort_lst->next;
+		p = p->next;
 		i--;
 	}
-	return (sort_lst->nbr);
+	i = p->nbr;
+	free_lst(&sort_lst);
+	return (i);
 }
 
 int		if_rev_rotate(t_doub_lst *lst, int midd_nbr, int size)

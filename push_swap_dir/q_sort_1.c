@@ -60,7 +60,7 @@ void	rev_ret(t_doub_lst **lst, int rr, char *str)
 		rr--;
 	}
 }
-
+/*
 int		rev(t_doub_lst *lst, int midd_nbr, int size)
 {
 	int 	left;
@@ -88,4 +88,4 @@ int		rev(t_doub_lst *lst, int midd_nbr, int size)
 	if (left > right)
 		return (1);
 	return (0);
-}
+}*/

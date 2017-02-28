@@ -45,7 +45,7 @@ t_doub_lst	*make_lst(int size, char **arg)
 	head->size = size;
 	return (head);
 }
-
+/*
 int		check(int argc, char **argv)
 {
 	t_doub_lst	*a;
@@ -69,13 +69,13 @@ int		check(int argc, char **argv)
 	}
 	return 0;
 }
-
+*/
 int		main(int argc, char **argv)
 {
 	t_doub_lst	*a;
 	t_doub_lst	*b;
-	char **temp = argv;
-	int t = argc;
+	//char **temp = argv;
+//	int t = argc;
 
 	b = NULL;
 	if (argc > 1)
@@ -84,7 +84,7 @@ int		main(int argc, char **argv)
 		find_sort_algorithm(&a, &b);
 	//	ft_putendl(check_if_sort_a(a) == 1 ? "OK" : "KO"); // remove before
 	//	print_stacks(a, b, 0);// finish
-		check(t, temp);
+	//	check(t, temp);
 		free_lst(&a);
 	}
 	return 0;

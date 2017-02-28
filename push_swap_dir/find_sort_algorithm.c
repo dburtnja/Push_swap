@@ -37,8 +37,9 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 {
 	int 	midd_nbr;
 	int 	size;
+	int		rr;
 
-
+	rr = 0;
 	size = (*a)->size / 2;
 	midd_nbr = middle_nbr(*a, 0);
 	//rr = if_rev_rotate(*a, midd_nbr, size);
@@ -46,8 +47,9 @@ void	dividing_lst_a(t_doub_lst **a, t_doub_lst *b)
 	{
 		if (find_instruction_a(a, &b, midd_nbr, 0) == 1)
 			size--;
+		rr++;
 	}
-	rev_ret(b, rr, "rrb");
+	rev_ret(a, rr, "rra");
 	find_sort_algorithm(a, &b); //if a sort - send NULL
 	while (b)
 	{

@@ -53,7 +53,7 @@ void	sort_a(t_doub_lst **a, t_doub_lst *b)
 
 	size = (*a)->size / 2;
 	midd_nbr = middle_nbr(*a, 0);
-	rr[0] = if_rev_rotate(*a, midd_nbr, size);
+	rr[0] = 0;//if_rev_rotate(*a, midd_nbr, size);
 	rr[1] = 0;
 	while (size > 0)
 	{
@@ -62,7 +62,7 @@ void	sort_a(t_doub_lst **a, t_doub_lst *b)
 		if (find_instruction_a(a, &b, midd_nbr, &rr[0]) == 1)
 			size--;
 	}
-	rev(a, rr);
+	rev(a, rr); //remove in start
 	find_sort_algorithm(a, &b);
 	while (b)
 	{

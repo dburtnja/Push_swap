@@ -11,28 +11,12 @@
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
-/*
+
 void	find_sort_algorithm(t_doub_lst **a, t_doub_lst **b)
 {
-	int 	midd_nbr;
-	int 	size;
-	int		rr;
-
-	size = (*a)->size / 2;
-	midd_nbr = middle_nbr(*a, 0);
-	rr = if_rev_rotate(*a, midd_nbr, size);
-	while (size > 0)
-	{
-		if (find_instruction_a(a, b, midd_nbr, rr) == 1)
-			size--;
-	}
+	sort_small(*a, *b);
 	if (*a && (*a)->size > 2 && check_if_sort_a(*a) == 0)
-		sort_a(a, b);
-	if (*b && (*b)->size > 2 && check_if_sort_b(*b) == 0)
+		sort_a(a, NULL);
+	if (*b && (*b)->size > 2)
 		sort_b(a, b);
-	while (*b)
-	{
-		ps_push_stack(b, a);
-		ft_putendl("pa");
-	}
-}*/
+}

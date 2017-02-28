@@ -51,6 +51,16 @@ int 	middle_nbr(t_doub_lst *head, int f)
 	return (sort_lst->nbr);
 }
 
+void	rev_ret(t_doub_lst **lst, int rr, char *str)
+{
+	while (rr > 0)
+	{
+		ps_rev_rotate_stack(lst);
+		ft_putendl(str);
+		rr--;
+	}
+}
+
 int		rev(t_doub_lst *lst, int midd_nbr, int size)
 {
 	int 	left;

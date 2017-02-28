@@ -53,5 +53,6 @@ int						check_if_sort_b(t_doub_lst *b);
 void					sort_small(t_doub_lst *a, t_doub_lst *b);
 int						middle_nbr(t_doub_lst *head, int f);
 int						rev(t_doub_lst *lst, int midd_nbr, int size);
+void					rev_ret(t_doub_lst **lst, int rr, char *str);
 
 #endif

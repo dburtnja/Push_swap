@@ -1,80 +1,53 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ps_applay_instructions.c                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/25 20:22:29 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 20:22:36 by dburtnja         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	ps_apply_to_both(t_doub_lst **a, t_doub_lst **b, void (*f)
-		(t_doub_lst**))
+void	ps_applay_to_both(int *a, int *b, void (*f)(int*))
 {
 	f(a);
 	f(b);
 }
 
-void	ps_swap_stack(t_doub_lst **stack)
+void	ps_swap_stack(int *stack)
 {
 	int buf;
 
-	if (*stack && (*stack)->size > 1)
+	buf = stack[0];
+	stack[0] = stack[1];
+	stack[1] = buf;
+}
+
+void	ps_push_stack(int *from, int *into)
+{
+	ft_memmove((void*)&into[2], (void*)&into[1], (sizeof(int) * into[0]));
+	into[1] = from[1];
+	into[0]++;
+	from[0]--;
+	ft_memmove((void*)&from[1], (void*)&from[2], (sizeof(int) * from[0]));
+	from[from[0] + 1] = 0;
+}
+
+void	ps_rotate_stack(int *arr)
+{
+	int		buf;
+
+	if (arr[0] > 1)
 	{
-		buf = (*stack)->nbr;
-		(*stack)->nbr = (*stack)->next->nbr;
-		(*stack)->next->nbr = buf;
+		buf = arr[1];
+		ft_memmove((void *) &arr[1], (void *) &arr[2],
+				   (sizeof(int) * (arr[0] - 1)));
+		arr[arr[0]] = buf;
 	}
 }
 
-void	ps_push_stack(t_doub_lst **from, t_doub_lst **into)
+void	ps_rev_rotate_stack(int *arr)
 {
-	t_doub_lst	*p;
+	int 	buf;
 
-	p = *from;
-	*from = (*from)->next;
-	if (p->size > 1)
+	if (arr[0] > 1)
 	{
-		(*from)->prev = NULL;
-		p->next->size = p->size - 1;
-	}
-	add_lst_to_front(into, p);
-}
-
-void	ps_rotate_stack(t_doub_lst **head)
-{
-	t_doub_lst	*front;
-
-	if (*head && (*head)->size > 1)
-	{
-		front = *head;
-		*head = (*head)->next;
-		(*head)->prev = NULL;
-		(*head)->size = front->size;
-		front->size = 0;
-		front->next = NULL;
-		add_lst_to_back(head, front);
-	}
-}
-
-void	ps_rev_rotate_stack(t_doub_lst **head)
-{
-	t_doub_lst	*p;
-	t_doub_lst	*last;
-
-	if (*head && (*head)->size > 1)
-	{
-		p = *head;
-		while (p->next)
-			p = p->next;
-		last = p->prev;
-		last->next = NULL;
-		p->prev = NULL;
-		(*head)->size--;
-		add_lst_to_front(head, p);
+		buf = arr[arr[0]];
+		ft_memmove((void *) &arr[2], (void *) &arr[1],
+				   (sizeof(int) * (arr[0] - 1)));
+		arr[1] = buf;
 	}
 }

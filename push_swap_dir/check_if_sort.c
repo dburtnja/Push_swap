@@ -12,26 +12,45 @@
 
 #include "../Push_swap.h"
 
-int		check_if_sort_a(t_doub_lst *a)
+int 	find_rr(int *tab, int nbr)
 {
-	a = a->next;
-	while (a)
+	int 	i;
+	int 	first;
+	int 	second;
+
+	i = 1;
+	while (tab[0] > i)
 	{
-		if (a->prev->nbr > a->nbr)
+		if (nbr > tab[i])
+			first = i;
+		i++;
+	}
+}
+
+int		check_if_sort_a(int	*a)
+{
+	int 	i;
+
+	i = 1;
+	while (i + 1 < a[0])
+	{
+		if (a[i] > a[i + 1])
 			return (0);
-		a = a->next;
+		i++;
 	}
 	return (1);
 }
 
-int		check_if_sort_b(t_doub_lst *b)
+int		check_if_sort_b(int *b)
 {
-	b = b->next;
-	while (b)
+	int 	i;
+
+	i = 1;
+	while (i + 1 < b[0])
 	{
-		if (b->prev->nbr < b->nbr)
+		if (b[i] < b[i + 1])
 			return (0);
-		b = b->next;
+		i++;
 	}
 	return (1);
 }

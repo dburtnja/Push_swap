@@ -12,11 +12,9 @@
 
 #include "../Push_swap.h"
 
-void	find_sort_algorithm(t_doub_lst **a, t_doub_lst **b)
+
+
+void	find_sort_algorithm(int *a, int *b, char **str)
 {
-	sort_small(*a, *b);
-	if (*a && (*a)->size > 2 && check_if_sort_a(*a) == 0)
-		sort_a(a, NULL);
-	if (*b && (*b)->size > 2)
-		sort_b(a, b);
+	move_to_b(a, b, str);
 }

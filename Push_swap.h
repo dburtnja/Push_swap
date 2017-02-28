@@ -6,6 +6,8 @@
 # include <stdlib.h>
 # include "./libft/libft.h"
 
+# define INT_MIN		-2147483648
+# define INT_MAX		2147483647
 # define GREEN			"\x1b[32m"
 # define YELLOW			"\x1b[33m"
 # define BLUE			"\x1b[34m"
@@ -32,8 +34,6 @@ int						*bubble_sort(int *tab);
 void					error(void);
 int						check_instructions(t_doub_lst **a, t_doub_lst **b,
 											  int *flag);
-void					sort_a(t_doub_lst **a, t_doub_lst *b);
-void					sort_b(t_doub_lst **a, t_doub_lst **b);
 void					swap_stack(t_doub_lst **stack);
 void					push_stack(t_doub_lst **from, t_doub_lst **into);
 void					rotate_stack(t_doub_lst **head);
@@ -43,18 +43,11 @@ void					apply_to_both(t_doub_lst **a, t_doub_lst **b,
 void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag);
 
 
-void					ps_swap_stack(t_doub_lst **stack);
-void					ps_push_stack(t_doub_lst **from, t_doub_lst **into);
-void					ps_rotate_stack(t_doub_lst **head);
-void					ps_rev_rotate_stack(t_doub_lst **head);
-void					ps_apply_to_both(t_doub_lst **a, t_doub_lst **b,
-									  void (*f)(t_doub_lst **stack));
-void					find_sort_algorithm(t_doub_lst **a, t_doub_lst **b);
-int						check_if_sort_a(t_doub_lst *a);
-int						check_if_sort_b(t_doub_lst *b);
+void					find_sort_algorithm(int *a, int *b, char **str);
+void					move_to_b(int *a, int *b, char **str);
+int						check_if_sort_a(int	*a);
+int						check_if_sort_b(int	*b);
+int						find_rr(int *tab, int nbr);
 
-void					sort_small(t_doub_lst *a, t_doub_lst *b);
-int						middle_nbr(t_doub_lst *head, int f);
-int						if_rev_rotate(t_doub_lst *lst, int midd_nbr, int size);
 
 #endif

@@ -26,6 +26,7 @@ void					add_lst_to_back(t_doub_lst **head, t_doub_lst *new);
 void					add_lst_to_front(t_doub_lst **head, t_doub_lst *new);
 void					free_lst(t_doub_lst **head);
 
+int						*new_int_tab(int *tab);
 int						*bubble_sort(int *tab);
 
 void					error(void);

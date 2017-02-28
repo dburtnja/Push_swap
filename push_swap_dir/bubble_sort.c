@@ -27,26 +27,28 @@ int 	*new_int_tab(int *tab)
 	return (ret);
 }
 
-int		*bubble_sort(int *tab)
+int		*bubble_sort(int *sort)
 {
-	int 	*sort;
 	int 	end;
+	int 	buf;
 	int 	i;
-	int 	start;
 
 	end = 0;
-	i = tab[0];
-	sort = new_int_tab(tab);
 	sort++;
 	while (!end)
 	{
 		end = 1;
-		start = 0;
-		while (i - 1 > start)
+		i = 0;
+		while (i + 1 < sort[-1])
 		{
-			if (sort[start] > sort[start + 1])
+			if (sort[i] > sort[i + 1])
+			{
 				end = 0;
-			start++;
+				buf = sort[i];
+				sort[i] = sort[i + 1];
+				sort[i + 1] = buf;
+			}
+			i++;
 		}
 	}
 	sort--;

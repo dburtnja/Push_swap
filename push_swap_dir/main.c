@@ -24,7 +24,7 @@ void	if_same(int *tab)
 	int 	*sort;
 
 	i = 0;
-	sort = bubble_sort(tab);
+	sort = bubble_sort(new_int_tab(tab));
 	while (sort[0] > i)
 	{
 		if (sort[i] == sort[i + 1])
@@ -51,9 +51,10 @@ int		*make_tab(int size, char **arg)
 
 	tab = (int*)malloc(sizeof(int) * (size + 1));
 	i = 0;
+	*tab = size;
 	while (i < size)
 	{
-		tab[i] = check_if_num(arg[i]);
+		tab[i + 1] = check_if_num(arg[i]);
 		i++;
 	}
 	if_same(tab);

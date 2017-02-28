@@ -18,14 +18,20 @@ void	error(void)
 	exit(1);
 }
 
-void	if_same(int nbr, t_doub_lst *lst)
+void	if_same(int *tab)
 {
-	while (lst)
+	int 	i;
+	int 	*sort;
+
+	i = 0;
+	sort = bubble_sort(tab);
+	while (sort[0] > i)
 	{
-		if (lst->nbr == nbr)
+		if (sort[i] == sort[i + 1])
 			error();
-		lst = lst->next;
+		i++;
 	}
+	free(sort);
 }
 
 int		check_if_num(char *str)
@@ -38,66 +44,33 @@ int		check_if_num(char *str)
 	return (nbr);
 }
 
-t_doub_lst	*make_lst(int size, char **arg)
+int		*make_tab(int size, char **arg)
 {
-	int			i;
-	t_doub_lst	*p;
-	t_doub_lst	*head;
+	int 	*tab;
+	int 	i;
 
+	tab = (int*)malloc(sizeof(int) * (size + 1));
 	i = 0;
-	head = NULL;
 	while (i < size)
 	{
-		p = new_lst(check_if_num(arg[i]));
-		if_same(p->nbr, head);
-		add_lst_to_back(&head, p);
+		tab[i] = check_if_num(arg[i]);
 		i++;
 	}
-	head->size = size;
-	return (head);
-}
-
-int		checker(int argc, char **argv)
-{
-	t_doub_lst	*a;
-	t_doub_lst	*b;
-	int 		flags[2];
-
-	flags[0] = 1;
-	flags[1] = 1;
-	b = NULL;
-	if (argc > 1)
-	{
-		//check_flag(&flags[0], &argv, &argc);
-		a = make_lst(argc - 1, &argv[1]);
-		if (check_instructions(&a, &b, &flags[0]) == 1)
-			ft_putendl(flags[1] == 1 ? GREEN"OK"RESET : "OK");
-		else
-			ft_putendl(flags[1] == 1 ? RED"KO"RESET : "KO");
-		free_lst(&a);
-		if (b)
-			free_lst(&b);
-	}
-	return 0;
+	if_same(tab);
+	return (tab);
 }
 
 int		main(int argc, char **argv)
 {
-	t_doub_lst	*a;
-	t_doub_lst	*b;
-	char **temp;
-	int temp_c;
+	int 	*a;
+	int 	*b;
 
-	temp = argv;
-	temp_c = argc;
 	b = NULL;
 	if (argc > 1)
 	{
-		a = make_lst(argc - 1, &argv[1]);
-		find_sort_algorithm(&a, &b);
-		//ft_putendl(check_if_sort_a(a) == 1 ? "OK" : "KO"); // remove before
-		checker(temp_c, temp);
-		free_lst(&a);
+		a = make_tab(argc - 1, argv + 1);
+		//find_sort_algorithm(&a, &b);
+		free(a);
 	}
 	return 0;
 }

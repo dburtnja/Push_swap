@@ -12,28 +12,43 @@
 
 #include "../Push_swap.h"
 
-t_doub_lst	*bubble_sort(t_doub_lst *lst)
+int 	*new_int_tab(int *tab)
 {
-	int 		end;
-	int 		buf;
-	t_doub_lst	*p;
+	int 	*ret;
+	int 	i;
+
+	i = 0;
+	ret = (int*)malloc(sizeof(int) * (tab[0] + 1));
+	while (i < tab[0] + 1)
+	{
+		ret[i] = tab[i];
+		i++;
+	}
+	return (ret);
+}
+
+int		*bubble_sort(int *tab)
+{
+	int 	*sort;
+	int 	end;
+	int 	i;
+	int 	start;
 
 	end = 0;
+	i = tab[0];
+	sort = new_int_tab(tab);
+	sort++;
 	while (!end)
 	{
-		p = lst;
 		end = 1;
-		while (p->next)
+		start = 0;
+		while (i - 1 > start)
 		{
-			if (p->nbr > p->next->nbr)
-			{
+			if (sort[start] > sort[start + 1])
 				end = 0;
-				buf = p->nbr;
-				p->nbr = p->next->nbr;
-				p->next->nbr = buf;
-			}
-			p = p->next;
+			start++;
 		}
 	}
-	return (lst);
+	sort--;
+	return (sort);
 }

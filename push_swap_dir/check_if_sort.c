@@ -15,16 +15,27 @@
 int 	find_rr(int *tab, int nbr)
 {
 	int 	i;
-	int 	first;
-	int 	second;
+	int 	left;
+	int 	right;
 
 	i = 1;
-	while (tab[0] > i)
+	left = 0;
+	right = 0;
+	while (tab[0] >= i)
 	{
-		if (nbr > tab[i])
-			first = i;
+		if (nbr >= tab[i])
+			left = i - 1;
 		i++;
 	}
+	while (i > 1)
+	{
+		if (nbr >= tab[i])
+			right = i;
+		i--;
+	}
+	if (right < left)
+		return (1);
+	return (0);
 }
 
 int		check_if_sort_a(int	*a)

@@ -13,14 +13,14 @@ int		find_two_nbrs(int *tab)
 	i = 1;
 	ret = INT_MAX;
 	min = INT_MAX;
-	while (i < tab[0])
+	while (i - 1 < tab[0])
 	{
 		if (tab[i] < min)
 			min = tab[i];
 		i++;
 	}
 	i = 1;
-	while (i < tab[0])
+	while (i - 1 < tab[0])
 	{
 		if (tab[i] < ret && tab[i] > min)
 			ret = tab[i];

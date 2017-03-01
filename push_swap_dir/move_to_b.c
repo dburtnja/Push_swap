@@ -29,7 +29,7 @@ int		find_two_nbrs(int *tab)
 	return (ret);
 }
 
-int 	find_instruction(int *a, int *b, int *nbr, char **str)
+static int 	find_instruction(int *a, int *b, int *nbr, char **str)
 {
 	if (a[1] <= nbr[0])
 	{

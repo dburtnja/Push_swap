@@ -57,4 +57,11 @@ void					ps_rotate_stack(int *arr, char **str, char *s);
 void					ps_push_stack(int *from, int *into, char **str,
 									  char *s);
 
+void 					sort_b_part(int *a, int *b, char **str);
+int 					find_midd_nbr(int *a);
+void					try_rec(int *a, int *b, char **str);
+void					sort_a_part(int *a, int *b, char **str);
+
+
+
 #endif

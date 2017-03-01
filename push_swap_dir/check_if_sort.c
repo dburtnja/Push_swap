@@ -65,7 +65,7 @@ int		check_if_sort_a(int	*a)
 	}
 	return (1);
 }
-/*
+
 int		check_if_sort_b(int *b)
 {
 	int 	i;
@@ -78,4 +78,4 @@ int		check_if_sort_b(int *b)
 		i++;
 	}
 	return (1);
-}*/
+}

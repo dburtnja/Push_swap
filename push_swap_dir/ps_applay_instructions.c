@@ -1,50 +1,74 @@
 
 #include "../Push_swap.h"
 
-void	ps_applay_to_both(int *a, int *b, void (*f)(int*))
+void	ps_swap_both(int *a, int *b, char **str)
 {
-	f(a);
-	f(b);
+	if (a[0] > 1 && a[1] > a[2])
+		ps_swap_stack(a, str, "sa\n");
+	if (b[0] > 1 && b[1] < b[2])
+		ps_swap_stack(b, str, "sb\n");
 }
 
-void	ps_swap_stack(int *stack)
-{
-	int buf;
-
-	buf = stack[0];
-	stack[0] = stack[1];
-	stack[1] = buf;
-}
-
-void	ps_push_stack(int *from, int *into)
-{
-	ft_memmove((void*)&into[2], (void*)&into[1], (sizeof(int) * into[0]));
-	into[1] = from[1];
-	into[0]++;
-	from[0]--;
-	ft_memmove((void*)&from[1], (void*)&from[2], (sizeof(int) * from[0]));
-	from[from[0] + 1] = 0;
-}
-
-void	ps_rotate_stack(int *arr)
+void	ps_swap_stack(int *stack, char **str, char *s)
 {
 	int		buf;
+	char	*b;
 
-	if (arr[0] > 1)
+	b = ft_strjoin(*str, s);
+	ft_strdel(str);
+	*str = b;
+	buf = stack[1];
+	stack[1] = stack[2];
+	stack[2] = buf;
+}
+
+void	ps_push_stack(int *from, int *into, char **str, char *s)
+{
+	char	*b;
+
+	if (from[0] > 0)
 	{
+		b = ft_strjoin(*str, s);
+		ft_strdel(str);
+		*str = b;
+		ft_memmove((void *) &into[2], (void *) &into[1],
+				   (sizeof(int) * into[0]));
+		into[1] = from[1];
+		into[0]++;
+		from[0]--;
+		ft_memmove((void *) &from[1], (void *) &from[2],
+				   (sizeof(int) * from[0]));
+		from[from[0] + 1] = 0;
+	}
+}
+
+void	ps_rotate_stack(int *arr, char **str, char *s)
+{
+	int		buf;
+	char	*b;
+
+	if (arr[0] > 0)
+	{
+		b = ft_strjoin(*str, s);
+		ft_strdel(str);
+		*str = b;
 		buf = arr[1];
 		ft_memmove((void *) &arr[1], (void *) &arr[2],
-				   (sizeof(int) * (arr[0] - 1)));
+					   (sizeof(int) * (arr[0] - 1)));
 		arr[arr[0]] = buf;
 	}
 }
 
-void	ps_rev_rotate_stack(int *arr)
+void	ps_rev_rotate_stack(int *arr, char **str, char *s)
 {
 	int 	buf;
+	char	*b;
 
-	if (arr[0] > 1)
+	if (arr[0] > 0)
 	{
+		b = ft_strjoin(*str, s);
+		ft_strdel(str);
+		*str = b;
 		buf = arr[arr[0]];
 		ft_memmove((void *) &arr[2], (void *) &arr[1],
 				   (sizeof(int) * (arr[0] - 1)));

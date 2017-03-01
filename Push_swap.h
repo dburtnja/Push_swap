@@ -49,5 +49,12 @@ int						check_if_sort_a(int	*a);
 int						check_if_sort_b(int	*b);
 int						find_rr(int *tab, int nbr);
 
+void					print_int_stack(int *a);
+void					ps_swap_both(int *a, int *b, char **str);
+void					ps_swap_stack(int *stack, char **str, char *s);
+void					ps_rev_rotate_stack(int *arr, char **str, char *s);
+void					ps_rotate_stack(int *arr, char **str, char *s);
+void					ps_push_stack(int *from, int *into, char **str,
+									  char *s);
 
 #endif

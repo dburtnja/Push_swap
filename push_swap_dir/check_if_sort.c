@@ -12,6 +12,20 @@
 
 #include "../Push_swap.h"
 
+void	print_int_stack(int *a)
+{
+	int 	i;
+
+	i = 1;
+	while (a[0] > i - 1)
+	{
+		ft_putchar(' ');
+		ft_putnbr(a[i]);
+		i++;
+	}
+	ft_putendl("");
+}
+
 int 	find_rr(int *tab, int nbr)
 {
 	int 	i;
@@ -43,7 +57,7 @@ int		check_if_sort_a(int	*a)
 	int 	i;
 
 	i = 1;
-	while (i + 1 < a[0])
+	while (i < a[0])
 	{
 		if (a[i] > a[i + 1])
 			return (0);

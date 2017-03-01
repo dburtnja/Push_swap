@@ -21,7 +21,7 @@ void	move_to_a(int *a, int *b, char **str)
 	{
 		ps_push_stack(b, a, str, "pa\n");
 		ps_push_stack(b, a, str, "pa\n");
-		i =+ 2;
+		i += 2;
 		if (i % 4 == 0)
 			ps_swap_both(a, b, str);
 	}

@@ -39,7 +39,7 @@ int 	find_instruction(int *a, int *b, int *nbr, char **str)
 	if (nbr[1] == 1)
 		ps_rev_rotate_stack(a, str, "rra\n");
 	else
-		ps_rotate_stack(a, str, "rr\n");
+		ps_rotate_stack(a, str, "ra\n");
 	return (0);
 }
 

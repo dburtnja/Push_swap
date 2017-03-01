@@ -33,8 +33,8 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	move_to_a(a, b, str);
 	if (check_if_sort_a(a) == 0)
 		ps_swap_stack(a, str, "sa\n");
-	print_int_stack(a);
-	print_int_stack(b);
+//	print_int_stack(a);
+//	print_int_stack(b);
 	ft_putendl(*str);
 	return ;
 }

@@ -32,7 +32,7 @@ int 	find_midd_nbr(int *a)
 	int 	ret;
 
 	sort = bubble_sort(new_int_tab(a));
-	ret = sort[sort[0] / 2];
+	ret = sort[sort[0] / 2 + 1];
 	free(sort);
 	return (ret);
 }
@@ -75,4 +75,8 @@ void	sort_a_part(int *a, int *b, char **str)
 		midd[1]--;
 	}
 	try_rec(a, b, str);
+	ps_swap_both(a, b, str);
+	while (b[0] > 0)
+		ps_push_stack(b, a, str, "pa\n");
+	free(b);
 }

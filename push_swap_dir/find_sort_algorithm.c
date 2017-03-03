@@ -14,19 +14,10 @@
 
 void	try_rec(int *a, int *b, char **str)
 {
-	int 	sort;
-
 	if (a[0] > 2 && check_if_sort_a(a) == 0)
-		sort_a_part(a, (int*)ft_memalloc((size_t)a[0] + 1), str);
-	else if (b[0] > 2 && check_if_sort_b(b) == 0)
-		sort_b_part((int*)ft_memalloc((size_t)b[0] + 1), b, str);
-	else
-	{
-		ps_swap_both(a, b, str);
-		while (b[0] > 0)
-			ps_push_stack(b, a, str, "pa\n");
-		free(b);
-	}
+		sort_a_part(a, (int*)ft_memalloc(sizeof(int) * (a[0] + 1)), str);
+	if (b[0] > 2 && check_if_sort_b(b) == 0)
+		sort_b_part((int*)ft_memalloc(sizeof(int) * (b[0] + 1)), b, str);
 }
 
 void	move_to_a(int *a, int *b, char **str)
@@ -53,5 +44,7 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	//rec
 	try_rec(a, b, str);
 	ft_putendl(*str);
+	print_int_stack(a);
+	print_int_stack(b);
 	return ;
 }

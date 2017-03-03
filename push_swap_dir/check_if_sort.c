@@ -71,7 +71,7 @@ int		check_if_sort_b(int *b)
 	int 	i;
 
 	i = 1;
-	while (i + 1 < b[0])
+	while (i < b[0])
 	{
 		if (b[i] < b[i + 1])
 			return (0);

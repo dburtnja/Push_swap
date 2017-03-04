@@ -52,12 +52,12 @@ int 	find_rr(int *tab, int nbr)
 	return (0);
 }
 
-int		check_if_sort_a(int	*a)
+int		check_if_sort_a(int	*a, int len)
 {
 	int 	i;
 
 	i = 1;
-	while (i < a[0])
+	while (i < len)
 	{
 		if (a[i] > a[i + 1])
 			return (0);
@@ -66,12 +66,12 @@ int		check_if_sort_a(int	*a)
 	return (1);
 }
 
-int		check_if_sort_b(int *b)
+int		check_if_sort_b(int *b, int len)
 {
 	int 	i;
 
 	i = 1;
-	while (i < b[0])
+	while (i < len)
 	{
 		if (b[i] < b[i + 1])
 			return (0);

@@ -12,14 +12,12 @@
 
 #include "../Push_swap.h"
 
-void	try_rec(int *a, int *b, char **str)
+void	try_rec(int *a, int *b, char **str, int *s)
 {
-	int 	size[2];
-
-	if (a[0] > 2 && check_if_sort_a(a) == 0)
-		sort_a_part(a, b, str, &size[0]);
-	if (b[0] > 2 && check_if_sort_b(b) == 0)
-		sort_b_part(a, b, str, &size[1]);
+	if (s[0] > 2 && check_if_sort_a(a, s[0]) == 0)
+		sort_a_part(a, b, str, s);
+	if (s[1] > 2 && check_if_sort_b(b, s[1]) == 0)
+		sort_b_part(a, b, str, s);
 }
 
 void	move_to_a(int *a, int *b, char **str)
@@ -44,7 +42,11 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 //	if (check_if_sort_a(a) == 0)
 //		ps_swap_stack(a, str, "sa\n");
 	//rec
-	try_rec(a, b, str);
+	int		size[2];
+
+	size[0] = *a;
+	size[1] = *b;
+	try_rec(a, b, str, &size[0]);
 	ft_putendl(*str);
 	print_int_stack(a);
 	print_int_stack(b);

@@ -45,8 +45,8 @@ void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag);
 
 void					find_sort_algorithm(int *a, int *b, char **str);
 void					move_to_b(int *a, int *b, char **str);
-int						check_if_sort_a(int	*a);
-int						check_if_sort_b(int	*b);
+int						check_if_sort_a(int	*a, int len);
+int						check_if_sort_b(int	*b, int len);
 int						find_rr(int *tab, int nbr);
 
 void					print_int_stack(int *a);
@@ -57,10 +57,10 @@ void					ps_rotate_stack(int *arr, char **str, char *s);
 void					ps_push_stack(int *from, int *into, char **str,
 									  char *s);
 
-void 					sort_b_part(int *a, int *b, char **str);
-int 					find_midd_nbr(int *a);
-void					try_rec(int *a, int *b, char **str);
-void					sort_a_part(int *a, int *b, char **str);
+void 					sort_b_part(int *a, int *b, char **str, int *s);
+int 					find_midd_nbr(int *a, int len);
+void					try_rec(int *a, int *b, char **str, int *s);
+void					sort_a_part(int *a, int *b, char **str, int *s);
 
 
 

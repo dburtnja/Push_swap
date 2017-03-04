@@ -25,28 +25,27 @@ static int 	find_instructions(int *a, int *b, char **str, int *midd)
 	return (1);
 }
 
-void 	sort_b_part(int *a, int *b, char **str)
+void 	sort_b_part(int *a, int *b, char **str, int *s)
 {
 	int 	midd[2];
-	int 	size_a;
+	int 	size[2];
 
-	size_a = *a;
+	midd[0] = find_midd_nbr(b, s[1]);
 	midd[1] = 0;
-	midd[0] = find_midd_nbr(b);
+	size[0] = *a;
 	while (1)
 	{
 		if (find_instructions(a, b, str, &midd[0]))
 			break ;
 	}
-	*a -= size_a;
+	size[0] = *a - size[0] > 0 ? *a - size[0] : *a;
 	while (midd[1])
 	{
 		ps_rev_rotate_stack(b, str, "rrb\n");
 		midd[1]--;
 	}
-	try_rec(a, b, str);
+	try_rec(a, b, str, size);
 	ps_swap_both(a, b, str);
-	a[0] = size_a + a[0];
 	while (b[0] > 0)
 		ps_push_stack(b, a, str, "pa\n");
 }

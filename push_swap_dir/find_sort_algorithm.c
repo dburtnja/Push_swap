@@ -14,10 +14,12 @@
 
 void	try_rec(int *a, int *b, char **str)
 {
+	int 	size[2];
+
 	if (a[0] > 2 && check_if_sort_a(a) == 0)
-		sort_a_part(a, (int*)ft_memalloc(sizeof(int) * (a[0] + 1)), str);
+		sort_a_part(a, b, str, &size[0]);
 	if (b[0] > 2 && check_if_sort_b(b) == 0)
-		sort_b_part((int*)ft_memalloc(sizeof(int) * (b[0] + 1)), b, str);
+		sort_b_part(a, b, str, &size[1]);
 }
 
 void	move_to_a(int *a, int *b, char **str)

@@ -67,7 +67,7 @@ int		main(int argc, char **argv)
 	int 	*b;
 	char 	*str;
 
-	b = (int*)ft_memalloc(sizeof(int) * (argc - 1));
+	b = (int*)ft_memalloc(sizeof(int) * (argc));
 	str = ft_strdup("");
 	if (argc > 1)
 	{

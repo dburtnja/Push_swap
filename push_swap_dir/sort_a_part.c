@@ -61,22 +61,27 @@ static int 	find_instructions(int *a, int *b, char **str, int *midd)
 void	sort_a_part(int *a, int *b, char **str)
 {
 	int 	midd[2];
+	int 	size_b;
 
 	midd[0] = find_midd_nbr(a);
 	midd[1] = 0;
+	size_b = *b;
 	while (1)
 	{
 		if (find_instructions(a, b, str, &midd[0]))
 			break ;
 	}
+	size_b = size_b - *b;
 	while (midd[1])
 	{
 		ps_rev_rotate_stack(a, str, "rra\n");
 		midd[1]--;
 	}
-	try_rec(a, b, str);
+	try_rec(a, b, str, size_b);
 	ps_swap_both(a, b, str);
-	while (b[0] > 0)
+	while (size_b > 0)
+	{
 		ps_push_stack(b, a, str, "pa\n");
-	free(b);
+		size_b--;
+	}
 }

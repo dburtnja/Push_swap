@@ -9,7 +9,7 @@ static int 	find_instructions(int *a, int *b, char **str, int *midd)
 	int 	i;
 
 	i = 1;
-	if (b[1] > midd[0])
+	if (b[1] >= midd[0])
 		ps_push_stack(b, a, str, "pa\n");
 	else
 	{
@@ -18,7 +18,7 @@ static int 	find_instructions(int *a, int *b, char **str, int *midd)
 	}
 	while (b[0] > i - 1)
 	{
-		if (b[i] > midd[0])
+		if (b[i] >= midd[0])
 			return (0);
 		i++;
 	}

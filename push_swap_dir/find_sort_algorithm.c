@@ -43,12 +43,25 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 //		ps_swap_stack(a, str, "sa\n");
 	//rec
 	int		size[2];
+	int 	i;
 
+	i = 0;
 	size[0] = *a;
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);
 	ft_putendl(*str);
-	print_int_stack(a);
-	print_int_stack(b);
+	/*print_int_stack(a);
+	print_int_stack(b);*/
+	while (**str)
+	{
+		if (**str == '\n')
+			i++;
+		(*str)++;
+	}
+	if (check_if_sort_a(a, a[0]))
+		ft_putendl("OK");
+	else
+		ft_putendl("KO");
+	ft_putnbr(i);
 	return ;
 }

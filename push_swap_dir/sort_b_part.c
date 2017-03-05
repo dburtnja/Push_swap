@@ -39,6 +39,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 			break ;
 	}
 	size[0] = *a - size[0] > 0 ? *a - size[0] : *a;
+	size[1] = s[1] - size[0];
 	while (midd[1])
 	{
 		ps_rev_rotate_stack(b, str, "rrb\n");
@@ -46,6 +47,10 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	}
 	try_rec(a, b, str, size);
 	ps_swap_both(a, b, str);
-	while (b[0] > 0)
+	while (size[1] > 0)
+	{
 		ps_push_stack(b, a, str, "pa\n");
+		size[1]--;
+	}
+	s[1] = 0;
 }

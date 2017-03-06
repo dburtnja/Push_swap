@@ -71,9 +71,9 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	size[1] = *b;
 	while (1)
 	{
+		ps_swap_both(a, b, str);
 		if (find_instructions(a, b, str, &midd[0]))
 			break ;
-		ps_swap_both(a, b, str);
 	}
 	size[0] = *a;
 	size[1] = *b - size[1] > 0 ? *b - size[1] : *b;

@@ -36,20 +36,26 @@ void	move_to_a(int *a, int *b, char **str)
 	}
 }
 
+void	non_rec_sort(int *a, int *b, char **str)
+{
+	move_to_b(a, b, str);
+	move_to_a(a, b, str);
+	if (check_if_sort_a(a, *a) == 0)
+		ps_swap_stack(a, str, "sa\n");
+}
+
 void	find_sort_algorithm(int *a, int *b, char **str)
 {
-//	move_to_b(a, b, str);
-//	move_to_a(a, b, str);
-//	if (check_if_sort_a(a) == 0)
-//		ps_swap_stack(a, str, "sa\n");
-	//rec
 	int		size[2];
 	int 	i;
 
 	i = 0;
 	size[0] = *a;
 	size[1] = *b;
-	try_rec(a, b, str, &size[0]);
+	if (*a <= 30)
+		non_rec_sort(a, b, str);
+	else
+		try_rec(a, b, str, &size[0]);
 	ft_putendl(*str);
 	/*print_int_stack(a);
 	print_int_stack(b);*/

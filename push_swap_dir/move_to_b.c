@@ -67,16 +67,16 @@ void	sort_three(int *a, int *b, char **str)
 		ps_rotate_stack(a, str, "ra\n");
 	if (a[1] > a[2])
 		ps_swap_both(a, b, str);
-	if (check_if_sort_a(a) == 0)
+	if (check_if_sort_a(a, *a) == 0)
 		ps_rev_rotate_stack(a, str, "rra\n");
 }
 
 void	move_to_b(int *a, int *b, char **str)
 {
-	while (a[0] > 3 && check_if_sort_a(a) == 0)
+	while (a[0] > 3 && check_if_sort_a(a, *a) == 0)
 		move_nbrs(a, b, str);
-	if (check_if_sort_a(a) == 0 && a[0] == 3)
+	if (check_if_sort_a(a, *a) == 0 && a[0] == 3)
 		sort_three(a, b, str);
-	if (check_if_sort_a(a) == 0)
+	if (check_if_sort_a(a, *a) == 0)
 		ps_swap_both(a, b, str);
 }

@@ -27,9 +27,10 @@ static int 	find_instructions(int *a, int *b, char **str, int *midd)
 
 void 	sort_b_part(int *a, int *b, char **str, int *s)
 {
-	int 	midd[2];
+	int 	midd[3];
 	int 	size[2];
 
+	midd[2] = *b == s[1];
 	midd[0] = find_midd_nbr(b, s[1]);
 	midd[1] = 0;
 	size[0] = *a;
@@ -40,7 +41,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	}
 	size[0] = *a - size[0] > 0 ? *a - size[0] : *a;
 	size[1] = s[1] - size[0];
-	while (midd[1])
+	while (midd[1] && !midd[2])
 	{
 		ps_rev_rotate_stack(b, str, "rrb\n");
 		midd[1]--;

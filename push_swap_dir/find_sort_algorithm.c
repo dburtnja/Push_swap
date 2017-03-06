@@ -18,6 +18,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 		sort_a_part(a, b, str, s);
 	if (s[1] > 2 && check_if_sort_b(b, s[1]) == 0)
 		sort_b_part(a, b, str, s);
+
 }
 
 void	move_to_a(int *a, int *b, char **str)

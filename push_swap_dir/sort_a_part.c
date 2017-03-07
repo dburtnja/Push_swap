@@ -78,13 +78,15 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	}
 	size[0] = *a;
 	size[1] = *b - size[1] > 0 ? *b - size[1] : *b;
+//	if (a[0] == 3)
+//		sort_three(a, b, str);
 	while (midd[1] && !midd[2])
 	{
 		ps_rev_rotate_stack(a, str, "rra\n");
 		midd[1]--;
 	}
-	try_rec(a, b, str, size);
 	ps_swap_both(a, b, str);
+	try_rec(a, b, str, size);
 	while (size[1] > 0)
 	{
 		ps_push_stack(b, a, str, "pa\n");

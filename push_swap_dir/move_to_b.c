@@ -69,6 +69,8 @@ void	sort_three(int *a, int *b, char **str)
 		ps_swap_both(a, b, str);
 	if (check_if_sort_a(a, *a) == 0)
 		ps_rev_rotate_stack(a, str, "rra\n");
+	if (check_if_sort_a(a, *a) == 0)
+		ps_swap_both(a, b, str);
 }
 
 void	move_to_b(int *a, int *b, char **str)

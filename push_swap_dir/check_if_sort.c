@@ -79,3 +79,17 @@ int		check_if_sort_b(int *b, int len)
 	}
 	return (1);
 }
+
+int 	if_b_has_a_part(int a, int *b)
+{
+	int 	i;
+
+	i = 1;
+	while (i <= b[0])
+	{
+		if (a < b[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}

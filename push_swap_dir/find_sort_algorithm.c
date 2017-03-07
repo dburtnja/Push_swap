@@ -52,9 +52,9 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	i = 0;
 	size[0] = *a;
 	size[1] = *b;
-	if (*a <= 15)
+	/*if (*a <= 15)
 		non_rec_sort(a, b, str);
-	else
+	else*/
 		try_rec(a, b, str, &size[0]);
 	ft_putendl(*str);
 	/*print_int_stack(a);

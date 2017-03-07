@@ -65,7 +65,7 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 			i++;
 		(*str)++;
 	}
-	if (check_if_sort_a(a, a[0]))
+	if (check_if_sort_a(a, a[0]) && b[0] == 0)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");

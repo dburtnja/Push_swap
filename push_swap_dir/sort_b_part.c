@@ -48,7 +48,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 		ps_rev_rotate_stack(b, str, "rrb\n");
 		midd[1]--;
 	}
-	ps_swap_both(a, b, str);
+	//ps_swap_both(a, b, str);
 	try_rec(a, b, str, size);
 	while (size[1] > 0)
 	{

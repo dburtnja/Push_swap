@@ -12,8 +12,23 @@
 
 #include "../Push_swap.h"
 
+void	sort_four(int *a, int *b, char **str)
+{
+	if (a[0] == 3)
+	{
+
+	}
+	if (a[0] == 4)
+	{
+
+	}
+}
+
 void	try_rec(int *a, int *b, char **str, int *s)
 {
+	if (a[0] <= 4 && check_if_sort_a(a, a[0]) == 0)
+		sort_four(a, b, str);
+	ps_swap_both(a, b, str);
 	if (s[0] > 2 && check_if_sort_a(a, s[0]) == 0)
 	{
 	//	*str = ft_strjoin(*str, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");

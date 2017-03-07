@@ -36,8 +36,6 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	size[0] = *a;
 	while (1)
 	{
-//		if (check_if_sort_a(a, a[0]) && !if_b_has_a_part(a[1], b))
-	//		break;
 		if (find_instructions(a, b, str, &midd[0]))
 			break ;
 	}

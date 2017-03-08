@@ -60,6 +60,18 @@ int 	find_instructions_a(int *a, int *b, char **str, int *midd)
 	return (1);
 }
 
+void	check_if_need_swap_a(int *a, char **str)
+{
+	ps_swap_stack(a, str, "");
+	if (check_if_sort_a(a, a[0]))
+	{
+		ps_swap_stack(a, str, "");
+		ps_swap_stack(a, str, "sa\n");
+	}
+	else
+		ps_swap_stack(a, str, "");
+}
+
 void	sort_a_part(int *a, int *b, char **str, int *s)
 {
 	int 	midd[3];
@@ -71,6 +83,7 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	size[1] = *b;
 	while (1)
 	{
+		//check_if_need_swap_a(a, str);
 		if (check_if_sort_a(a, a[0]) && !if_b_has_a_part(a[1], b))
 			break ;
 		if (find_instructions_a(a, b, str, &midd[0]))

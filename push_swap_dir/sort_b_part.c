@@ -4,7 +4,7 @@
 
 #include "../Push_swap.h"
 
-static int 	find_instructions_b(int *a, int *b, char **str, int *midd)
+int 	find_instructions_b(int *a, int *b, char **str, int *midd)
 {
 	int 	i;
 

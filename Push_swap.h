@@ -67,6 +67,8 @@ int 					if_a_has_b_part(int b, int *a);
 void					sort_four_a(int *a, int *b, char **str);
 int 					find_instructions_a(int *a, int *b, char **str,
 										   int *midd);
+int 					find_instructions_b(int *a, int *b, char **str,
+										   int *midd);
 
 
 #endif

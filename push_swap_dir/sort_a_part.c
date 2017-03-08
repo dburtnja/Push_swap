@@ -39,7 +39,7 @@ int 	find_midd_nbr(int *a, int len)
 	return (ret);
 }
 
-static int 	find_instructions(int *a, int *b, char **str, int *midd)
+int 	find_instructions_a(int *a, int *b, char **str, int *midd)
 {
 	int 	i;
 
@@ -73,7 +73,7 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	{
 		if (check_if_sort_a(a, a[0]) && !if_b_has_a_part(a[1], b))
 			break ;
-		if (find_instructions(a, b, str, &midd[0]))
+		if (find_instructions_a(a, b, str, &midd[0]))
 			break ;
 	}
 	size[0] = *a;

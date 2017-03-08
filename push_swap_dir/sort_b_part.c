@@ -4,7 +4,7 @@
 
 #include "../Push_swap.h"
 
-static int 	find_instructions(int *a, int *b, char **str, int *midd)
+static int 	find_instructions_b(int *a, int *b, char **str, int *midd)
 {
 	int 	i;
 
@@ -38,7 +38,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	{
 		//if (check_if_sort_b(b, b[0]) && !if_a_has_b_part(b[1], a))
 		//	break ;
-		if (find_instructions(a, b, str, &midd[0]))
+		if (find_instructions_b(a, b, str, &midd[0]))
 			break ;
 	}
 	size[0] = *a - size[0] > 0 ? *a - size[0] : *a;

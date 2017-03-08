@@ -14,9 +14,9 @@
 
 void	try_rec(int *a, int *b, char **str, int *s)
 {
-	if (a[0] == 3 && check_if_sort_a(a, a[0]) == 0)
-		sort_three(a, b, str);
-	ps_swap_both(a, b, str);
+	//if (a[0] <= 4 && check_if_sort_a(a, a[0]) == 0)
+		sort_four_a(a, b, str);
+ps_swap_both(a, b, str);
 	if (s[0] > 2 && check_if_sort_a(a, s[0]) == 0)
 	{
 	//	*str = ft_strjoin(*str, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
@@ -60,9 +60,9 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	i = 0;
 	size[0] = *a;
 	size[1] = *b;
-	if (*a <= 5)
-		non_rec_sort(a, b, str);
-	else
+//	if (*a <= 5)
+//		non_rec_sort(a, b, str);
+//	else
 		try_rec(a, b, str, &size[0]);
 	ft_putendl(*str);
 	print_int_stack(a);

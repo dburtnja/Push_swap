@@ -93,3 +93,17 @@ int 	if_b_has_a_part(int a, int *b)
 	}
 	return (0);
 }
+
+int 	if_a_has_b_part(int b, int *a)
+{
+	int 	i;
+
+	i = 1;
+	while (i <= a[0])
+	{
+		if (b > a[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}

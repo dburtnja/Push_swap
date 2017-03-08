@@ -63,6 +63,7 @@ void					try_rec(int *a, int *b, char **str, int *s);
 void					sort_a_part(int *a, int *b, char **str, int *s);
 void					sort_three(int *a, int *b, char **str);
 int 					if_b_has_a_part(int a, int *b);
+int 					if_a_has_b_part(int b, int *a);
 
 
 #endif

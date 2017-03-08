@@ -36,6 +36,8 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	size[0] = *a;
 	while (1)
 	{
+		//if (check_if_sort_b(b, b[0]) && !if_a_has_b_part(b[1], a))
+		//	break ;
 		if (find_instructions(a, b, str, &midd[0]))
 			break ;
 	}
@@ -46,8 +48,8 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 		ps_rev_rotate_stack(b, str, "rrb\n");
 		midd[1]--;
 	}
+	//ps_swap_both(a, b, str);
 	try_rec(a, b, str, size);
-	ps_swap_both(a, b, str);
 	while (size[1] > 0)
 	{
 		ps_push_stack(b, a, str, "pa\n");

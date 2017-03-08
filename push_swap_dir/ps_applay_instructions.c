@@ -3,10 +3,23 @@
 
 void	ps_swap_both(int *a, int *b, char **str)
 {
-	if (a[0] > 1 && a[1] > a[2])
-		ps_swap_stack(a, str, "sa\n");
-	if (b[0] > 1 && b[1] < b[2])
-		ps_swap_stack(b, str, "sb\n");
+	int 	a_bul;
+	int 	b_bul;
+
+	a_bul = a[0] > 1 && a[1] > a[2];
+	b_bul = b[0] > 1 && b[1] < b[2];
+	if (a_bul && b_bul)
+	{
+		ps_swap_stack(a, str, "ss");
+		ps_swap_stack(b, str, "\n");
+	}
+	else
+	{
+		if (a_bul)
+			ps_swap_stack(a, str, "sa\n");
+		if (b_bul)
+			ps_swap_stack(b, str, "sb\n");
+	}
 }
 
 void	ps_swap_stack(int *stack, char **str, char *s)

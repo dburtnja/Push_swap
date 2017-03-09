@@ -82,6 +82,8 @@ int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 	while ((gnl_ret = get_next_line(0, &inst)) > 0)
 	{
 		apply_instruction(inst, a, b);
+	//	if (inst[0] == 'r' && inst[1] == 'r')
+	//		ft_putendl("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
 		if (flag[0] == 1 && inst && *inst != 0)
 			print_stacks(*a, *b, flag[1]);
 		ft_strdel(&inst);

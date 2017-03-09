@@ -64,6 +64,12 @@ void					sort_a_part(int *a, int *b, char **str, int *s);
 void					sort_three(int *a, int *b, char **str);
 int 					if_b_has_a_part(int a, int *b);
 int 					if_a_has_b_part(int b, int *a);
+void					sort_five_b(int *a, int *b, char **str);
+void					sort_four_a(int *a, int *b, char **str);
+int 					find_instructions_a(int *a, int *b, char **str,
+										   int *midd);
+int 					find_instructions_b(int *a, int *b, char **str,
+										   int *midd);
 
 
 #endif

@@ -27,15 +27,9 @@ P_SRC = push_swap_dir/bubble_sort.c\
 		checker_dir/doubly_linked_list.c\
 		push_swap_dir/main.c\
 		push_swap_dir/ps_applay_instructions.c\
-<<<<<<< HEAD
 		push_swap_dir/sort_a_part.c\
 		push_swap_dir/move_to_b.c\
 		push_swap_dir/sort_b_part.c
-=======
-		push_swap_dir/sort_b_part.c\
-		push_swap_dir/sort_a_part.c\
-		push_swap_dir/move_to_b.c
->>>>>>> 0cb70239841445050c0357df02de8888aa6c6c6e
 
 C_OBJ = $(C_SRC:.c=.o)
 P_OBJ = $(P_SRC:.c=.o)

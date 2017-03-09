@@ -70,7 +70,7 @@ int 					find_instructions_a(int *a, int *b, char **str,
 										   int *midd);
 int 					find_instructions_b(int *a, int *b, char **str,
 										   int *midd);
-void					sort_three_a_full(int *a, int *b, char **str);
+void					sort_three_a_full(int *a, int *b, int *s, char **str);
 
 
 #endif

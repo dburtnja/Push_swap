@@ -29,10 +29,10 @@ ARG="2433541 53023659 8704744 4716594 31021964 12167774 24170715 53543826 200929
 ./push_swap $ARG | ./checker -c $ARG
 
 ARG="15 19 10 20 6 3 8 11 16 12 14 4 7 9 18 5 17 1 13 2"; ./push_swap $ARG | wc -l
-./push_swap $ARG | ./checker -c $ARG
+./push_swap $ARG | ./checker -c -v $ARG
 
 ARG="3 2 1 0"; ./push_swap $ARG | wc -l
 ./push_swap $ARG | ./checker -c $ARG
 
 ARG="21 41 29 22 31 13 44 10 45 43 0 26 49 6 14 33 3 9 30 19 16 7 23 12 17 8 35 24 5 47 27 32 2 20 50 40 4 1 38 36 46 25 34 39 48 18 15 11 37 28"; ./push_swap $ARG | wc -l
-./push_swap $ARG | ./checker -c -v $ARG
+./push_swap $ARG | ./checker -c $ARG

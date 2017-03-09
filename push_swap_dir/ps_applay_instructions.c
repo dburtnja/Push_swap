@@ -1,7 +1,7 @@
 
 #include "../Push_swap.h"
 
-void	ps_swap_both(int *a, int *b, char **str)
+void	ps_swap_both(int *a, int *b, char **str, char o)
 {
 	int 	a_bul;
 	int 	b_bul;
@@ -15,9 +15,9 @@ void	ps_swap_both(int *a, int *b, char **str)
 	}
 	else
 	{
-		if (a_bul)
+		if (a_bul && (o == 'a' || o == 't'))
 			ps_swap_stack(a, str, "sa\n");
-		if (b_bul)
+		if (b_bul && (o == 'b' || o == 't'))
 			ps_swap_stack(b, str, "sb\n");
 	}
 }

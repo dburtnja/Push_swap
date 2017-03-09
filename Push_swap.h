@@ -50,7 +50,7 @@ int						check_if_sort_b(int	*b, int len);
 int						find_rr(int *tab, int nbr);
 
 void					print_int_stack(int *a);
-void					ps_swap_both(int *a, int *b, char **str);
+void					ps_swap_both(int *a, int *b, char **str, char o);
 void					ps_swap_stack(int *stack, char **str, char *s);
 void					ps_rev_rotate_stack(int *arr, char **str, char *s);
 void					ps_rotate_stack(int *arr, char **str, char *s);
@@ -70,6 +70,7 @@ int 					find_instructions_a(int *a, int *b, char **str,
 										   int *midd);
 int 					find_instructions_b(int *a, int *b, char **str,
 										   int *midd);
+void					sort_three_a_full(int *a, int *b, char **str);
 
 
 #endif

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	apply_to_both(t_doub_lst **a, t_doub_lst **b, void (*f)(t_doub_lst**))
 {

@@ -1,5 +1,4 @@
-
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	ps_swap_both(int *a, int *b, char **str, char o)
 {

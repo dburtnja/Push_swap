@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	apply_instruction(char *inst, t_doub_lst **a, t_doub_lst **b)
 {

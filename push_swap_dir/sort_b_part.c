@@ -1,8 +1,4 @@
-//
-// Created by Denys on 01.03.2017.
-//
-
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 int 	find_instructions_b(int *a, int *b, char **str, int *midd)
 {
@@ -24,7 +20,7 @@ int 	find_instructions_b(int *a, int *b, char **str, int *midd)
 	}
 	return (1);
 }
-
+/*
 void	check_if_need_swap_b(int *b, char **str)
 {
 	ps_swap_stack(b, str, "");
@@ -35,7 +31,7 @@ void	check_if_need_swap_b(int *b, char **str)
 	}
 	else
 		ps_swap_stack(b, str, "");
-}
+}*/
 
 void 	sort_b_part(int *a, int *b, char **str, int *s)
 {

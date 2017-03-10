@@ -1,8 +1,4 @@
-//
-// Created by Denys Burtnjak on 3/9/17.
-//
-
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	rot_a_and_or_b(int *a, int *b, int *bul, char **str)
 {

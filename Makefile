@@ -6,7 +6,7 @@
 #    By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 16:49:11 by dburtnja          #+#    #+#              #
-#    Updated: 2017/03/08 16:36:54 by dburtnja         ###   ########.fr        #
+#    Updated: 2017/03/10 19:35:57 by dburtnja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ P_SRC = push_swap_dir/bubble_sort.c\
 		push_swap_dir/ps_applay_instructions.c\
 		push_swap_dir/sort_b_part.c\
 		push_swap_dir/sort_a_part.c\
-		push_swap_dir/move_to_b.c\
-		push_swap_dir/sort_four.c
+		push_swap_dir/sort_four.c\
+		push_swap_dir/sort_three.c	
 
 C_OBJ = $(C_SRC:.c=.o)
 P_OBJ = $(P_SRC:.c=.o)

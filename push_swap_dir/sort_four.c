@@ -1,0 +1,84 @@
+//
+// Created by Denys Burtnjak on 3/8/17.
+//
+
+#include "../Push_swap.h"
+
+void	sort_three_a(int *a, int *b, char **str)
+{
+	if (a[1] > a[2] && a[1] > a[3])
+		ps_rotate_stack(a, str, "ra\n");
+	if (a[1] > a[2])
+		ps_swap_both(a, b, str, 'a');
+	if (check_if_sort_a(a, *a) == 0)
+		ps_rev_rotate_stack(a, str, "rra\n");
+	if (check_if_sort_a(a, *a) == 0)
+		ps_swap_both(a, b, str, 'a');
+}
+
+void	sort_four_a(int *a, int *b, char **str)
+{
+	int 	f;
+	int 	nbr[2];
+	int 	*sort;
+
+	f = 0;
+	if (a[0] == 4)
+	{
+		f = 1;
+		sort = bubble_sort(new_int_tab(a));
+		nbr[0] = sort[2];
+		if (sort[1] == a[4])
+			ps_rev_rotate_stack(a, str, "rra\n");
+		free(sort);
+		while (1)
+		{
+			if (check_if_sort_a(a, a[0]))
+				return;
+			if (find_instructions_a(a, b, str, &nbr[0]))
+				break;
+		}
+	}
+	if (a[0] == 3 && check_if_sort_a(a, a[0]) == 0)
+		sort_three_a(a, b, str);
+	if (a[1] > a[2])
+		ps_swap_stack(a, str, "sa\n");
+	if (f)
+		ps_push_stack(b, a, str, "pa\n");
+}
+
+void	sort_three_b(int *a, int *b, char **str)
+{
+	if (b[1] < b[2] && b[1] < b[3])
+		ps_rotate_stack(b, str, "rb\n");
+	if (b[1] < b[2])
+		ps_swap_both(a, b, str, 'b');
+	if (check_if_sort_b(b, *b) == 0)
+		ps_rev_rotate_stack(b, str, "rrb\n");
+	if (check_if_sort_b(b, *b) == 0)
+		ps_swap_both(a, b, str, 'b');
+}
+
+void	sort_five_b(int *a, int *b, char **str)
+{
+	int 	nbr[2];
+	int 	*sort;
+
+	if (b[0] == 4)
+	{
+		sort = bubble_sort(new_int_tab(b));
+		nbr[0] = sort[4];
+		if (sort[4] == b[4])
+			ps_rev_rotate_stack(b, str, "rrb\n");
+		free(sort);
+		while (1)
+		{
+			if (find_instructions_b(a, b, str, &nbr[0]))
+				break;
+		}
+	}
+	if (b[0] == 3 && check_if_sort_b(b, b[0]) == 0)
+		sort_three_b(a, b, str);
+	if (b[1] < b[2])
+		ps_swap_stack(b, str, "sb\n");
+}

@@ -89,8 +89,8 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 		if (find_instructions_a(a, b, str, &midd[0]))
 			break ;
 	}
-	size[0] = *a;
 	size[1] = *b - size[1] > 0 ? *b - size[1] : *b;
+	size[0] = s[0] - size[1];
 //	if (a[0] == 3)
 //		sort_three(a, b, str);
 	while (midd[1] && !midd[2])

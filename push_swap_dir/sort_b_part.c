@@ -48,6 +48,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	size[0] = *a;
 	while (1)
 	{
+	//	check_if_need_swap_b(b, str);
 		//if (check_if_sort_b(b, b[0]) && !if_a_has_b_part(b[1], a))
 		//	break ;
 		if (find_instructions_b(a, b, str, &midd[0]))

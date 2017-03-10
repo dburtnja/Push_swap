@@ -16,6 +16,8 @@ void	try_rec(int *a, int *b, char **str, int *s)
 {
 	if (a[0] <= 4 && a[0] > 2 && check_if_sort_a(a, a[0]) == 0)
 		sort_four_a(a, b, str);//?????? ?????????? ????? ?
+	//if (b[0] <= 4 && b[0] > 2 && check_if_sort_b(b, b[0]) == 0)
+	//	sort_five_b(a, b, str);
 	if (s[0] <= 3 && s[1] <= 3)
 		sort_three_a_full(a, b, s, str);
 //	ps_swap_both(a, b, str, 'a');

@@ -57,29 +57,6 @@ t_doub_lst	*make_lst(int size, char **arg)
 	return (head);
 }
 
-void	check_flag(int *flag, char ***argv, int *argc)
-{
-	char	**p_argv;
-
-	flag[0] = 0;
-	flag[1] = 0;
-	p_argv = *argv;
-	p_argv++;
-	(*argc)--;
-	while (*argc > 1)
-	{
-		if (p_argv[0][0] == '-' && p_argv[0][1] == 'v')
-			flag[0] = 1;
-		else if (p_argv[0][0] == '-' && p_argv[0][1] == 'c')
-			flag[1] = 1;
-		else
-			break ;
-		(*argc)--;
-		p_argv++;
-	}
-	*argv = p_argv;
-}
-
 int		main(int argc, char **argv)
 {
 	t_doub_lst	*a;
@@ -99,5 +76,5 @@ int		main(int argc, char **argv)
 		if (b)
 			free_lst(&b);
 	}
-	return 0;
+	return (0);
 }

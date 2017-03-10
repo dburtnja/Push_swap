@@ -36,6 +36,8 @@ void	apply_instruction(char *inst, t_doub_lst **a, t_doub_lst **b)
 		rev_rotate_stack(b);
 	else if (ft_strcmp(inst, "rrr") == 0)
 		apply_to_both(a, b, &rev_rotate_stack);
+	else if (*inst != 0)
+		error();
 }
 
 int		check_if_sort(t_doub_lst *a, t_doub_lst *b)
@@ -54,41 +56,50 @@ int		check_if_sort(t_doub_lst *a, t_doub_lst *b)
 	return (1);
 }
 
-void	print_stacks(t_doub_lst *a, t_doub_lst *b, int flag)
+void	print_stacks(t_doub_lst *a, t_doub_lst *b, int flag, int fd)
 {
-	ft_putstr(flag == 1 ? YELLOW"stack A:" : "stack A:");
+	ft_putstr_fd(flag == 1 ? YELLOW"stack A:" : "stack A:", fd);
 	while (a)
 	{
-		ft_putchar(' ');
-		ft_putnbr(a->nbr);
+		ft_putchar_fd(' ', fd);
+		ft_putnbr_fd(a->nbr, fd);
 		a = a->next;
 	}
-	ft_putchar('\n');
-	ft_putstr(flag == 1 ? BLUE"stack B:" : "stack B:");
+	ft_putchar_fd('\n', fd);
+	ft_putstr_fd(flag == 1 ? BLUE"stack B:" : "stack B:", fd);
 	while (b)
 	{
-		ft_putchar(' ');
-		ft_putnbr(b->nbr);
+		ft_putchar_fd(' ', fd);
+		ft_putnbr_fd(b->nbr, fd);
 		b = b->next;
 	}
-	ft_putendl(RESET"");
+	ft_putendl_fd(RESET"", fd);
 }
 
 int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 {
 	char	*inst;
 	int		gnl_ret;
+	int 	i;
 
+	i = 0;
 	while ((gnl_ret = get_next_line(0, &inst)) > 0)
 	{
 		apply_instruction(inst, a, b);
-	//	if (inst[0] == 'r' && inst[1] == 'r')
-	//		ft_putendl("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
 		if (flag[0] == 1 && inst && *inst != 0)
-			print_stacks(*a, *b, flag[1]);
+			print_stacks(*a, *b, flag[1], 1);
 		ft_strdel(&inst);
+		i += (inst && *inst != 0) ? 1 : 0;
 	}
+	ft_putnbr(i);
 	if (gnl_ret == -1)
 		error();
+	if (flag[2] && !flag[0])
+		print_stacks(*a, *b, flag[1], 1);
+	if (flag[3])
+	{
+		ft_putnbr(i);
+		ft_putchar('\n');
+	}
 	return (check_if_sort(*a, *b));
 }

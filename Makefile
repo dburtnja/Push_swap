@@ -6,7 +6,7 @@
 #    By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 16:49:11 by dburtnja          #+#    #+#              #
-#    Updated: 2017/03/10 19:35:57 by dburtnja         ###   ########.fr        #
+#    Updated: 2017/03/10 20:59:33 by dburtnja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CFLAGS = -g -Wall -Wextra -Werror
 C_SRC =	checker_dir/applay_instructions.c\
 		checker_dir/check_instructions.c\
 		checker_dir/doubly_linked_list.c\
+		checker_dir/check_flag.c\
 		checker_dir/main.c
 
 P_SRC = push_swap_dir/bubble_sort.c\

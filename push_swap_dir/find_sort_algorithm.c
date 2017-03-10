@@ -18,7 +18,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 		sort_four_a(a, b, str);//?????? ?????????? ????? ?
 	if (s[0] == 3 && s[1] <= 3)
 		sort_three_a_full(a, b, s, str);
-	//ps_swap_both(a, b, str, 'a');
+	ps_swap_both(a, b, str, 'a');
 	if (s[0] > 2 && check_if_sort_a(a, s[0]) == 0)
 	{
 	//	*str = ft_strjoin(*str, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
@@ -26,7 +26,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 	}
 //	if (b[0] <= 4 && check_if_sort_b(b, b[0]) == 0)
 //		sort_five_b(a, b, str);
-//	ps_swap_both(a, b, str, 'b');
+	ps_swap_both(a, b, str, 'b');
 	if (b[0] > 2 && s[1] > 2 && check_if_sort_b(b, s[1]) == 0)
 	{
 	//	*str = ft_strjoin(*str, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n");

@@ -115,5 +115,7 @@ int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 	}
 	if (flag[4])
 		close(flag[4]);
+	if (inst)
+		ft_strdel(&inst);
 	return (check_if_sort(*a, *b));
 }

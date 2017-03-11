@@ -1,8 +1,16 @@
-//
-// Created by Denys Burtnjak on 3/9/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/11 17:49:17 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/11 17:49:46 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	rot_a_and_or_b(int *a, int *b, int *bul, char **str)
 {
@@ -38,7 +46,7 @@ void	rev_rot_a_and_or_b(int *a, int *b, int *bul, char **str)
 
 void	sort_three_a_full(int *a, int *b, int *s, char **str)
 {
-	int 	bul[2];
+	int	bul[2];
 
 	ps_swap_both(a, b, str, 't');
 	bul[0] = s[0] == 3 && check_if_sort_a(a, s[0]) == 0;

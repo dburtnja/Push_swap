@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	print_int_stack(int *a)
 {
@@ -24,32 +24,6 @@ void	print_int_stack(int *a)
 		i++;
 	}
 	ft_putendl("");
-}
-
-int 	find_rr(int *tab, int nbr)
-{
-	int 	i;
-	int 	left;
-	int 	right;
-
-	i = 1;
-	left = 0;
-	right = 0;
-	while (tab[0] >= i)
-	{
-		if (nbr >= tab[i])
-			left = i - 1;
-		i++;
-	}
-	while (i > 1)
-	{
-		if (nbr >= tab[i])
-			right = i;
-		i--;
-	}
-	if (right < left)
-		return (1);
-	return (0);
 }
 
 int		check_if_sort_a(int	*a, int len)
@@ -88,20 +62,6 @@ int 	if_b_has_a_part(int a, int *b)
 	while (i <= b[0])
 	{
 		if (a < b[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int 	if_a_has_b_part(int b, int *a)
-{
-	int 	i;
-
-	i = 1;
-	while (i <= a[0])
-	{
-		if (b > a[i])
 			return (1);
 		i++;
 	}

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	error(void)
 {
@@ -31,10 +31,13 @@ void	if_same(int nbr, t_doub_lst *lst)
 int		check_if_num(char *str)
 {
 	int 	nbr;
+	char	*s_nbr;
 
 	nbr = ft_atoi(str);
-	if (ft_strcmp(ft_itoa(nbr), str) != 0)
+	s_nbr = ft_itoa(nbr);
+	if (ft_strcmp(s_nbr, str) != 0)
 		error();
+	ft_strdel(&s_nbr);
 	return (nbr);
 }
 
@@ -53,38 +56,17 @@ t_doub_lst	*make_lst(int size, char **arg)
 		add_lst_to_back(&head, p);
 		i++;
 	}
+	if (head == NULL)
+		return (0);
 	head->size = size;
 	return (head);
-}
-
-void	check_flag(int *flag, char ***argv, int *argc)
-{
-	char	**p_argv;
-
-	flag[0] = 0;
-	flag[1] = 0;
-	p_argv = *argv;
-	p_argv++;
-	(*argc)--;
-	while (*argc > 1)
-	{
-		if (p_argv[0][0] == '-' && p_argv[0][1] == 'v')
-			flag[0] = 1;
-		else if (p_argv[0][0] == '-' && p_argv[0][1] == 'c')
-			flag[1] = 1;
-		else
-			break ;
-		(*argc)--;
-		p_argv++;
-	}
-	*argv = p_argv;
 }
 
 int		main(int argc, char **argv)
 {
 	t_doub_lst	*a;
 	t_doub_lst	*b;
-	int 		flags[2];
+	int 		flags[5];
 
 	b = NULL;
 	if (argc > 1)
@@ -99,5 +81,5 @@ int		main(int argc, char **argv)
 		if (b)
 			free_lst(&b);
 	}
-	return 0;
+	return (0);
 }

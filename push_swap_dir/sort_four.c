@@ -1,8 +1,16 @@
-//
-// Created by Denys Burtnjak on 3/8/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_four.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/11 17:57:41 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/11 18:05:08 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	sort_three_a(int *a, int *b, char **str)
 {
@@ -46,7 +54,7 @@ void	sort_four_a(int *a, int *b, char **str)
 	if (f)
 		ps_push_stack(b, a, str, "pa\n");
 }
-
+/*
 void	sort_three_b(int *a, int *b, char **str)
 {
 	if (b[1] < b[2] && b[1] < b[3])
@@ -81,4 +89,4 @@ void	sort_five_b(int *a, int *b, char **str)
 		sort_three_b(a, b, str);
 	if (b[1] < b[2])
 		ps_swap_stack(b, str, "sb\n");
-}
+}*/

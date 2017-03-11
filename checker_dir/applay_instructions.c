@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 void	apply_to_both(t_doub_lst **a, t_doub_lst **b, void (*f)(t_doub_lst**))
 {
@@ -34,14 +34,17 @@ void	push_stack(t_doub_lst **from, t_doub_lst **into)
 {
 	t_doub_lst	*p;
 
-	p = *from;
-	*from = (*from)->next;
-	if (p->size > 1)
+	if (*from && (*from)->size > 0)
 	{
-		(*from)->prev = NULL;
-		p->next->size = p->size - 1;
+		p = *from;
+		*from = (*from)->next;
+		if (p->size > 1)
+		{
+			(*from)->prev = NULL;
+			p->next->size = p->size - 1;
+		}
+		add_lst_to_front(into, p);
 	}
-	add_lst_to_front(into, p);
 }
 
 void	rotate_stack(t_doub_lst **head)

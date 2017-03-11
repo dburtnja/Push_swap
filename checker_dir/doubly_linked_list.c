@@ -6,11 +6,11 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 19:10:49 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 19:11:02 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:23:28 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
 t_doub_lst	*lst_dup(t_doub_lst *head)
 {
@@ -31,20 +31,21 @@ t_doub_lst	*lst_dup(t_doub_lst *head)
 void		free_lst(t_doub_lst **head)
 {
 	t_doub_lst	*p;
+	t_doub_lst	*buf;
 
 	p = *head;
-	while (p->next)
+	while (p)
 	{
-		p = p->next;
-		free(p->prev);
+		buf = p;
+		free(p);
+		p = buf->next;
 	}
-	free(p);
 	*head = NULL;
 }
 
 void		add_lst_to_front(t_doub_lst **head, t_doub_lst *new)
 {
-	int 	buf;
+	int		buf;
 
 	buf = 1;
 	if (*head)
@@ -79,11 +80,13 @@ t_doub_lst	*new_lst(int nbr)
 {
 	t_doub_lst	*head;
 
+	ft_putnbr(nbr);
 	if ((head = (t_doub_lst*)malloc(sizeof(t_doub_lst))) == NULL)
 		error();
 	head->nbr = nbr;
 	head->size = 0;
 	head->next = NULL;
 	head->prev = NULL;
+	free(head);
 	return (head);
 }

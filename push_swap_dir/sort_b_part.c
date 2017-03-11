@@ -1,12 +1,20 @@
-//
-// Created by Denys on 01.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_b_part.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/11 17:56:28 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/11 17:57:34 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
-int 	find_instructions_b(int *a, int *b, char **str, int *midd)
+int		find_instructions_b(int *a, int *b, char **str, int *midd)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	if (b[1] >= midd[0])
@@ -25,6 +33,7 @@ int 	find_instructions_b(int *a, int *b, char **str, int *midd)
 	return (1);
 }
 
+/*
 void	check_if_need_swap_b(int *b, char **str)
 {
 	ps_swap_stack(b, str, "");
@@ -35,12 +44,12 @@ void	check_if_need_swap_b(int *b, char **str)
 	}
 	else
 		ps_swap_stack(b, str, "");
-}
+}*/
 
-void 	sort_b_part(int *a, int *b, char **str, int *s)
+void	sort_b_part(int *a, int *b, char **str, int *s)
 {
-	int 	midd[3];
-	int 	size[2];
+	int	midd[3];
+	int	size[2];
 
 	midd[2] = *b == s[1];
 	midd[0] = find_midd_nbr(b, s[1]);
@@ -48,6 +57,7 @@ void 	sort_b_part(int *a, int *b, char **str, int *s)
 	size[0] = *a;
 	while (1)
 	{
+	//	check_if_need_swap_b(b, str);
 		//if (check_if_sort_b(b, b[0]) && !if_a_has_b_part(b[1], a))
 		//	break ;
 		if (find_instructions_b(a, b, str, &midd[0]))

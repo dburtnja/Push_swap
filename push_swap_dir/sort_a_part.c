@@ -1,35 +1,43 @@
-//
-// Created by Denys on 01.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_a_part.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/11 17:53:09 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/11 17:56:14 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "../push_swap.h"
 
-/*
-int 	find_if_rr(int *a, int
+int		find_rr(int *a, int midd)
 {
-	int 	i;
-	int 	left;
-	int 	right;
+	int	i;
+	int	left;
+	int	right;
 
 	i = 1;
 	left = 0;
 	right = 0;
 	while (i - 1 < a[0])
 	{
-		if (a[i] > midd && a[0] / 2 > i)
-			left++;
+		if (a[i] > midd && left == 0)
+			left = i;
 		else if (a[i] > midd)
-			right++;
+			right = i + 1;
 		i++;
 	}
-	if
+	if (left <= right)
+		return (0);
+	return (1);
 }
-*/
 
-int 	find_midd_nbr(int *a, int len)
+int		find_midd_nbr(int *a, int len)
 {
-	int 	*sort;
-	int 	ret;
+	int	*sort;
+	int	ret;
 
 	sort = new_int_tab(a);
 	*sort = len;
@@ -39,13 +47,15 @@ int 	find_midd_nbr(int *a, int len)
 	return (ret);
 }
 
-int 	find_instructions_a(int *a, int *b, char **str, int *midd)
+int		find_instructions_a(int *a, int *b, char **str, int *midd)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	if (a[1] < midd[0])
 		ps_push_stack(a, b, str, "pb\n");
+	else if (midd[2] && midd[3])
+		ps_rev_rotate_stack(a, str, "rra\n");
 	else
 	{
 		midd[1]++;
@@ -60,30 +70,21 @@ int 	find_instructions_a(int *a, int *b, char **str, int *midd)
 	return (1);
 }
 
-void	check_if_need_swap_a(int *a, char **str)
-{
-	ps_swap_stack(a, str, "");
-	if (check_if_sort_a(a, a[0]))
-	{
-		ps_swap_stack(a, str, "");
-		ps_swap_stack(a, str, "sa\n");
-	}
-	else
-		ps_swap_stack(a, str, "");
-}
-
 void	sort_a_part(int *a, int *b, char **str, int *s)
 {
-	int 	midd[3];
-	int 	size[2];
+	int	midd[4];
+	int	size[2];
 
 	midd[2] = *a == *s;
 	midd[0] = find_midd_nbr(a, s[0]);
+	//if (midd[2])
+//		midd[3] = find_rr(a, midd[0]);
+//	else
+//		midd[3] = 0;
 	midd[1] = 0;
 	size[1] = *b;
 	while (1)
 	{
-		//check_if_need_swap_a(a, str);
 		if (check_if_sort_a(a, a[0]) && !if_b_has_a_part(a[1], b))
 			break ;
 		if (find_instructions_a(a, b, str, &midd[0]))
@@ -91,8 +92,6 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	}
 	size[1] = *b - size[1] > 0 ? *b - size[1] : *b;
 	size[0] = s[0] - size[1];
-//	if (a[0] == 3)
-//		sort_three(a, b, str);
 	while (midd[1] && !midd[2])
 	{
 		ps_rev_rotate_stack(a, str, "rra\n");

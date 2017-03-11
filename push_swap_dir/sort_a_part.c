@@ -1,7 +1,7 @@
 #include "../push_swap.h"
 
-/*
-int 	find_if_rr(int *a, int
+
+int 	find_rr(int *a, int midd)
 {
 	int 	i;
 	int 	left;
@@ -12,15 +12,16 @@ int 	find_if_rr(int *a, int
 	right = 0;
 	while (i - 1 < a[0])
 	{
-		if (a[i] > midd && a[0] / 2 > i)
-			left++;
+		if (a[i] > midd && left == 0)
+			left = i;
 		else if (a[i] > midd)
-			right++;
+			right = i + 1;
 		i++;
 	}
-	if
+	if (left <= right)
+		return (0);
+	return (1);
 }
-*/
 
 int 	find_midd_nbr(int *a, int len)
 {
@@ -42,6 +43,8 @@ int 	find_instructions_a(int *a, int *b, char **str, int *midd)
 	i = 1;
 	if (a[1] < midd[0])
 		ps_push_stack(a, b, str, "pb\n");
+	else if (midd[2] && midd[3])
+		ps_rev_rotate_stack(a, str, "rra\n");
 	else
 	{
 		midd[1]++;
@@ -63,6 +66,10 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 
 	midd[2] = *a == *s;
 	midd[0] = find_midd_nbr(a, s[0]);
+	if (midd[2])
+		midd[3] = find_rr(a, midd[0]);
+	else
+		midd[3] = 0;
 	midd[1] = 0;
 	size[1] = *b;
 	while (1)

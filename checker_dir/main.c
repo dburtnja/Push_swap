@@ -53,6 +53,8 @@ t_doub_lst	*make_lst(int size, char **arg)
 		add_lst_to_back(&head, p);
 		i++;
 	}
+	if (head == NULL)
+		return (0);
 	head->size = size;
 	return (head);
 }
@@ -61,7 +63,7 @@ int		main(int argc, char **argv)
 {
 	t_doub_lst	*a;
 	t_doub_lst	*b;
-	int 		flags[2];
+	int 		flags[5];
 
 	b = NULL;
 	if (argc > 1)

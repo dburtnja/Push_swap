@@ -88,10 +88,9 @@ int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 		apply_instruction(inst, a, b);
 		if (flag[0] == 1 && inst && *inst != 0)
 			print_stacks(*a, *b, flag[1], 1);
-		ft_strdel(&inst);
 		i += (inst && *inst != 0) ? 1 : 0;
+		ft_strdel(&inst);
 	}
-	ft_putnbr(i);
 	if (gnl_ret == -1)
 		error();
 	if (flag[2] && !flag[0])

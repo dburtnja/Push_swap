@@ -86,6 +86,5 @@ t_doub_lst	*new_lst(int nbr)
 	head->size = 0;
 	head->next = NULL;
 	head->prev = NULL;
-	free(head);
 	return (head);
 }

@@ -80,7 +80,6 @@ t_doub_lst	*new_lst(int nbr)
 {
 	t_doub_lst	*head;
 
-	ft_putnbr(nbr);
 	if ((head = (t_doub_lst*)malloc(sizeof(t_doub_lst))) == NULL)
 		error();
 	head->nbr = nbr;

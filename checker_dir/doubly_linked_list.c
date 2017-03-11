@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 19:10:49 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 19:11:02 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:23:28 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void		free_lst(t_doub_lst **head)
 	while (p->next)
 	{
 		p = p->next;
+		free(&(p->nbr));
 		free(p->prev);
 	}
 	free(p);
@@ -44,7 +45,7 @@ void		free_lst(t_doub_lst **head)
 
 void		add_lst_to_front(t_doub_lst **head, t_doub_lst *new)
 {
-	int 	buf;
+	int		buf;
 
 	buf = 1;
 	if (*head)

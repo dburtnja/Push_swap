@@ -6,19 +6,19 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 19:11:24 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 19:11:35 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:22:38 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	error(void)
+void		error(void)
 {
 	write(1, "Error\n", 6);
 	exit(1);
 }
 
-void	if_same(int nbr, t_doub_lst *lst)
+void		if_same(int nbr, t_doub_lst *lst)
 {
 	while (lst)
 	{
@@ -28,9 +28,9 @@ void	if_same(int nbr, t_doub_lst *lst)
 	}
 }
 
-int		check_if_num(char *str)
+int			check_if_num(char *str)
 {
-	int 	nbr;
+	int	nbr;
 
 	nbr = ft_atoi(str);
 	if (ft_strcmp(ft_itoa(nbr), str) != 0)
@@ -59,24 +59,25 @@ t_doub_lst	*make_lst(int size, char **arg)
 	return (head);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_doub_lst	*a;
 	t_doub_lst	*b;
-	int 		flags[5];
+	int			flags[5];
 
 	b = NULL;
 	if (argc > 1)
 	{
 		check_flag(&flags[0], &argv, &argc);
 		a = make_lst(argc, &argv[0]);
-		if (check_instructions(&a, &b, &flags[0]) == 1)
-			ft_putendl(flags[1] == 1 ? GREEN"OK"RESET : "OK");
-		else
-			ft_putendl(flags[1] == 1 ? RED"KO"RESET : "KO");
+		//if (check_instructions(&a, &b, &flags[0]) == 1)
+	//		ft_putendl(flags[1] == 1 ? GREEN"OK"RESET : "OK");
+	//	else
+	//		ft_putendl(flags[1] == 1 ? RED"KO"RESET : "KO");
 		free_lst(&a);
 		if (b)
 			free_lst(&b);
 	}
+	while (1);
 	return (0);
 }

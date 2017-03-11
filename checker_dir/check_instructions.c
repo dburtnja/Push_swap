@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 19:10:28 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 19:10:37 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:28:59 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,13 @@ void	print_stacks(t_doub_lst *a, t_doub_lst *b, int flag, int fd)
 void	apply_flags(t_doub_lst *a, t_doub_lst *b, int *flag, char *inst)
 {
 	if (flag[0] == 1 && inst && *inst != 0)
-			print_stacks(a, b, flag[1], 1);
+		print_stacks(a, b, flag[1], 1);
 	if (flag[4] > 2 && inst && *inst != 0)
+	{
+		ft_putstr_fd("after: ", flag[4]);
+		ft_putendl_fd(inst, flag[4]);
 		print_stacks(a, b, flag[1], flag[4]);
+	}
 	if (inst && *inst != 0 && flag[3] >= 0)
 		flag[3]++;
 	ft_strdel(&inst);
@@ -92,7 +96,8 @@ int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 	char	*inst;
 	int		gnl_ret;
 
-	flag[4] = flag[4] ? open("stacks.txt", O_RDWR|O_CREAT) : -1;
+	if (flag[4] == 1)
+		flag[4] = open("stacks.txt", O_RDWR | O_TRUNC | O_CREAT, 0777);
 	while ((gnl_ret = get_next_line(0, &inst)) > 0)
 	{
 		apply_instruction(inst, a, b);
@@ -104,6 +109,7 @@ int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 		print_stacks(*a, *b, flag[1], 1);
 	if (flag[3] >= 0)
 	{
+		ft_putstr("Number of instructions: ");
 		ft_putnbr(flag[3]);
 		ft_putchar('\n');
 	}

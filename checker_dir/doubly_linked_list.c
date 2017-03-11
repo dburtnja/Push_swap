@@ -31,15 +31,15 @@ t_doub_lst	*lst_dup(t_doub_lst *head)
 void		free_lst(t_doub_lst **head)
 {
 	t_doub_lst	*p;
+	t_doub_lst	*buf;
 
 	p = *head;
-	while (p->next)
+	while (p)
 	{
-		p = p->next;
-		free(&(p->nbr));
-		free(p->prev);
+		buf = p;
+		free(p);
+		p = buf->next;
 	}
-	free(p);
 	*head = NULL;
 }
 
@@ -80,11 +80,13 @@ t_doub_lst	*new_lst(int nbr)
 {
 	t_doub_lst	*head;
 
+	ft_putnbr(nbr);
 	if ((head = (t_doub_lst*)malloc(sizeof(t_doub_lst))) == NULL)
 		error();
 	head->nbr = nbr;
 	head->size = 0;
 	head->next = NULL;
 	head->prev = NULL;
+	free(head);
 	return (head);
 }

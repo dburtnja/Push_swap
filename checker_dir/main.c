@@ -74,10 +74,10 @@ int			main(int argc, char **argv)
 	//		ft_putendl(flags[1] == 1 ? GREEN"OK"RESET : "OK");
 	//	else
 	//		ft_putendl(flags[1] == 1 ? RED"KO"RESET : "KO");
-		free_lst(&a);
+		//free_lst(&a);
+		free(a);
 		if (b)
 			free_lst(&b);
 	}
-	while (1);
 	return (0);
 }

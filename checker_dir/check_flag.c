@@ -7,7 +7,7 @@ void	check_flag(int *flag, char ***argv, int *argc)
 	flag[0] = 0;
 	flag[1] = 0;
 	flag[2] = 0;
-	flag[3] = 0;
+	flag[3] = -1;
 	flag[4] = 0;
 	p_argv = *argv;
 	p_argv++;
@@ -21,7 +21,7 @@ void	check_flag(int *flag, char ***argv, int *argc)
 		else if (p_argv[0][0] == '-' && p_argv[0][1] == 'l')
 			flag[2] = 1;
 		else if (p_argv[0][0] == '-' && p_argv[0][1] == 's')
-			flag[3] = 1;
+			flag[3] = 0;
 		else if (p_argv[0][0] == '-' && p_argv[0][1] == 'f')
 			flag[4] = 1;
 		else

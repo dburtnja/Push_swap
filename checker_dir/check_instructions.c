@@ -20,9 +20,9 @@ void	apply_instruction(char *inst, t_doub_lst **a, t_doub_lst **b)
 		swap_stack(b);
 	else if (ft_strcmp(inst, "ss") == 0)
 		apply_to_both(a, b, &swap_stack);
-	else if (ft_strcmp(inst, "pa") == 0 && *b && (*b)->size > 0)
+	else if (ft_strcmp(inst, "pa") == 0)
 		push_stack(b, a);
-	else if (ft_strcmp(inst, "pb") == 0 && *a && (*a)->size > 0)
+	else if (ft_strcmp(inst, "pb") == 0)
 		push_stack(a, b);
 	else if (ft_strcmp(inst, "ra") == 0)
 		rotate_stack(a);
@@ -76,29 +76,38 @@ void	print_stacks(t_doub_lst *a, t_doub_lst *b, int flag, int fd)
 	ft_putendl_fd(RESET"", fd);
 }
 
+void	apply_flags(t_doub_lst *a, t_doub_lst *b, int *flag, char *inst)
+{
+	if (flag[0] == 1 && inst && *inst != 0)
+			print_stacks(a, b, flag[1], 1);
+	if (flag[4] > 2 && inst && *inst != 0)
+		print_stacks(a, b, flag[1], flag[4]);
+	if (inst && *inst != 0 && flag[3] >= 0)
+		flag[3]++;
+	ft_strdel(&inst);
+}
+
 int		check_instructions(t_doub_lst **a, t_doub_lst **b, int *flag)
 {
 	char	*inst;
 	int		gnl_ret;
-	int 	i;
 
-	i = 0;
+	flag[4] = flag[4] ? open("stacks.txt", O_RDWR|O_CREAT) : -1;
 	while ((gnl_ret = get_next_line(0, &inst)) > 0)
 	{
 		apply_instruction(inst, a, b);
-		if (flag[0] == 1 && inst && *inst != 0)
-			print_stacks(*a, *b, flag[1], 1);
-		i += (inst && *inst != 0) ? 1 : 0;
-		ft_strdel(&inst);
+		apply_flags(*a, *b, &flag[0], inst);
 	}
 	if (gnl_ret == -1)
 		error();
 	if (flag[2] && !flag[0])
 		print_stacks(*a, *b, flag[1], 1);
-	if (flag[3])
+	if (flag[3] >= 0)
 	{
-		ft_putnbr(i);
+		ft_putnbr(flag[3]);
 		ft_putchar('\n');
 	}
+	if (flag[4])
+		close(flag[4]);
 	return (check_if_sort(*a, *b));
 }

@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include "./libft/libft.h"
 
 # define INT_MIN		-2147483648

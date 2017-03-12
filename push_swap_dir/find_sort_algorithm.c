@@ -31,23 +31,25 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 {
 	int		size[2];
 	int 	i;
+	char 	*buf;
 
 	i = 0;
 	size[0] = *a;
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);
 	ft_putstr(*str);
-/*	print_int_stack(a);
+	print_int_stack(a);
 	print_int_stack(b);
-	while (**str)
+	buf = *str;
+	while (*buf)
 	{
-		if (**str == '\n')
+		if (*buf == '\n')
 			i++;
-		(*str)++;
+		buf++;
 	}
 	if (check_if_sort_a(a, a[0]) && b[0] == 0)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
-	ft_putnbr(i);*/
+	ft_putnbr(i);
 }

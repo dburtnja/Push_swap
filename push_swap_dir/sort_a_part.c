@@ -84,7 +84,7 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	midd[3] = 0;	//end
 	midd[1] = 0;
 	size[1] = *b;
-	while (a[0] > 4)
+	while (1)
 	{
 		if (check_if_sort_a(a, a[0]) && !if_b_has_a_part(a[1], b))
 			break ;

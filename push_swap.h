@@ -74,5 +74,7 @@ int						find_instructions_b(int *a, int *b, char **str,
 							int *midd);
 void					sort_three_a_full(int *a, int *b, int *s, char **str);
 void					check_flag(int *flag, char ***argv, int *argc);
+void					nbr_of_operations(char *str);
+
 
 #endif

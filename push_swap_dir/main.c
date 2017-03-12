@@ -66,13 +66,15 @@ int		main(int argc, char **argv)
 	int		*a;
 	int		*b;
 	char	*str;
+	int		flags[5];
 
 	b = (int*)ft_memalloc(sizeof(int) * (argc));
 	str = ft_strdup("");
 	if (argc > 1)
 	{
-		a = make_tab(argc - 1, argv + 1);
-		find_sort_algorithm(a, b, &str);
+		check_flag(&flags[0], &argv, &argc);
+		a = make_tab(argc, argv);
+		find_sort_algorithm(a, b, &str, &flags[0]);
 		free(a);
 	}
 	free(b);

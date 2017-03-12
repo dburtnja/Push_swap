@@ -52,7 +52,7 @@ void					apply_to_both(t_doub_lst **a, t_doub_lst **b,
 							void (*f)(t_doub_lst **stack));
 void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag,
 							int fd);
-void					find_sort_algorithm(int *a, int *b, char **str);
+void					find_sort_algorithm(int *a, int *b, char **str, int *f);
 int						check_if_sort_a(int	*a, int len);
 int						check_if_sort_b(int	*b, int len);
 void					print_int_stack(int *a);

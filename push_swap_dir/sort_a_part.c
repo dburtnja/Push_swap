@@ -34,7 +34,7 @@ int		find_rr(int *a, int midd)
 	return (1);
 }
 
-int		find_midd_nbr(int *a, int len)
+int		find_midd_nbr(int *a, int len, char stack)
 {
 	int	*sort;
 	int	ret;
@@ -42,7 +42,7 @@ int		find_midd_nbr(int *a, int len)
 	sort = new_int_tab(a);
 	*sort = len;
 	sort = bubble_sort(sort);
-	ret = sort[sort[0] / 2 + 1];
+	ret = sort[sort[0] / 2 + (stack == 'a' ? 1 : 0)];
 	free(sort);
 	return (ret);
 }
@@ -76,7 +76,7 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	int	size[2];
 
 	midd[2] = *a == *s;
-	midd[0] = find_midd_nbr(a, s[0]);
+	midd[0] = find_midd_nbr(a, s[0], 'a');
 	if (midd[2])	//start
 		midd[3] = find_rr(a, midd[0]);
 	else

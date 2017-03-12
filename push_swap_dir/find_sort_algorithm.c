@@ -48,10 +48,7 @@ void	nbr_of_operations(char *str)
 void	find_sort_algorithm(int *a, int *b, char **str, int *f)
 {
 	int		size[2];
-	int 	i;
-	char 	*buf;
 
-	i = 0;
 	size[0] = *a;
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);

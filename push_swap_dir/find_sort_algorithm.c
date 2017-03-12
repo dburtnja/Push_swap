@@ -27,7 +27,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 	ps_swap_both(a, b, str, 't');
 }
 
-void	find_sort_algorithm(int *a, int *b, char **str)
+void	find_sort_algorithm(int *a, int *b, char **str, int *f)
 {
 	int		size[2];
 	int 	i;
@@ -38,18 +38,22 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);
 	ft_putstr(*str);
-	print_int_stack(a);
-	print_int_stack(b);
-	buf = *str;
-	while (*buf)
+	if (f[2])
 	{
-		if (*buf == '\n')
-			i++;
-		buf++;
+		print_int_stack(a);
+		print_int_stack(b);
+		buf = *str;
+		while (*buf)
+		{
+			if (*buf == '\n')
+				i++;
+			buf++;
+		}
+		if (check_if_sort_a(a, a[0]) && b[0] == 0)
+			ft_putendl("OK");
+		else
+			ft_putendl("KO");
 	}
-	if (check_if_sort_a(a, a[0]) && b[0] == 0)
-		ft_putendl("OK");
-	else
-		ft_putendl("KO");
-	ft_putnbr(i);
+	if (f[3] == 0)
+		ft_putnbr(i);
 }

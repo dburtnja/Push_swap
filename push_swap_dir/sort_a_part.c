@@ -77,10 +77,11 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 
 	midd[2] = *a == *s;
 	midd[0] = find_midd_nbr(a, s[0]);
-	//if (midd[2])
-//		midd[3] = find_rr(a, midd[0]);
-//	else
-//		midd[3] = 0;
+	if (midd[2])	//start
+		midd[3] = find_rr(a, midd[0]);
+	else
+		midd[3] = 0;
+	midd[3] = 0;	//end
 	midd[1] = 0;
 	size[1] = *b;
 	while (1)

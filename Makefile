@@ -26,12 +26,13 @@ P_SRC = push_swap_dir/bubble_sort.c\
 		push_swap_dir/find_sort_algorithm.c\
 		push_swap_dir/check_if_sort.c\
 		checker_dir/doubly_linked_list.c\
+		checker_dir/check_flag.c\
 		push_swap_dir/main.c\
 		push_swap_dir/ps_applay_instructions.c\
-		push_swap_dir/sort_b_part.c\
 		push_swap_dir/sort_a_part.c\
-		push_swap_dir/sort_four.c\
-		push_swap_dir/sort_three.c	
+		push_swap_dir/sort_b_part.c\
+		push_swap_dir/sort_three.c\
+		push_swap_dir/sort_four.c
 
 C_OBJ = $(C_SRC:.c=.o)
 P_OBJ = $(P_SRC:.c=.o)

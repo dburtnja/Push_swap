@@ -36,7 +36,7 @@ void	find_sort_algorithm(int *a, int *b, char **str)
 	size[0] = *a;
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);
-	ft_putendl(*str);
+	ft_putstr(*str);
 /*	print_int_stack(a);
 	print_int_stack(b);
 	while (**str)

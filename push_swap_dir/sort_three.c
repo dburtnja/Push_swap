@@ -48,11 +48,19 @@ void	sort_three_a_full(int *a, int *b, int *s, char **str)
 {
 	int	bul[2];
 
-	ps_swap_both(a, b, str, 't');
+	if (b[0] != 3)
+		ps_swap_both(a, b, str, 't');
+	else if (a[0] > 1 && a[1] > a[2])
+		ps_swap_stack(a, str, "sa\n");
 	bul[0] = s[0] == 3 && check_if_sort_a(a, s[0]) == 0;
-	bul[1] = s[1] == 3 && check_if_sort_b(b, s[1]) == 0;
+	if (b[0] != 3)
+		bul[1] = s[1] == 3 && check_if_sort_b(b, s[1]) == 0;
+	else
+		bul[1] = b[1] < b[2] && b[1] < b[3];
 	rot_a_and_or_b(a, b, &bul[0], str);
 	ps_swap_both(a, b, str, 't');
+	if (b[0] == 3)
+		bul[1] = check_if_sort_b(b, *b) == 0;
 	rev_rot_a_and_or_b(a, b, &bul[0], str);
 	ps_swap_both(a, b, str, 't');
 }

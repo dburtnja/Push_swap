@@ -34,6 +34,13 @@ typedef	struct			s_doub_lst
 	struct s_doub_lst	*prev;
 }						t_doub_lst;
 
+typedef	struct			s_res
+{
+	int					size;
+	int					*stack;
+	char 				*operations;
+}						t_res;
+
 t_doub_lst				*lst_dup(t_doub_lst *head);
 t_doub_lst				*new_lst(int nbr);
 void					add_lst_to_back(t_doub_lst **head, t_doub_lst *new);
@@ -52,7 +59,8 @@ void					apply_to_both(t_doub_lst **a, t_doub_lst **b,
 							void (*f)(t_doub_lst **stack));
 void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag,
 							int fd);
-void					find_sort_algorithm(int *a, int *b, char **str, int *f);
+
+int						find_sort_algorithm(int *a, int *b, char **str, int *f);
 int						check_if_sort_a(int	*a, int len);
 int						check_if_sort_b(int	*b, int len);
 void					print_int_stack(int *a);
@@ -74,7 +82,9 @@ int						find_instructions_b(int *a, int *b, char **str,
 							int *midd);
 void					sort_three_a_full(int *a, int *b, int *s, char **str);
 void					check_flag(int *flag, char ***argv, int *argc);
-void					nbr_of_operations(char *str);
+int					nbr_of_operations(char *str);
+int						first_move_a(int argc, char **argv, int *flags, int *b);
+int						*make_tab(int size, char **arg);
 
 
 #endif

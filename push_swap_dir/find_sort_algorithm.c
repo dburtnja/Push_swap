@@ -25,7 +25,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 		sort_b_part(a, b, str, s);
 }
 
-void	nbr_of_operations(char *str)
+int		nbr_of_operations(char *str)
 {
 	int i;
 
@@ -36,28 +36,15 @@ void	nbr_of_operations(char *str)
 			i++;
 		str++;
 	}
-	ft_putstr("Number of instructions: ");
-	ft_putnbr(i);
-	ft_putchar('\n');
+	return (i);
 }
 
-void	find_sort_algorithm(int *a, int *b, char **str, int *f)
+int		find_sort_algorithm(int *a, int *b, char **str, int *f)
 {
 	int		size[2];
 
 	size[0] = *a;
 	size[1] = *b;
 	try_rec(a, b, str, &size[0]);
-	ft_putstr(*str);
-	if (f[2])
-	{
-		print_int_stack(a);
-		print_int_stack(b);
-		if (check_if_sort_a(a, a[0]) && b[0] == 0)
-			ft_putendl("OK");
-		else
-			ft_putendl("KO");
-	}
-	if (f[3] == 0)
-		nbr_of_operations(*str);
+	return (nbr_of_operations(*str));
 }

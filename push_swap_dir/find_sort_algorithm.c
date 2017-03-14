@@ -18,8 +18,8 @@ void	try_rec(int *a, int *b, char **str, int *s)
 		sort_four_a(a, b, str);
 	if (s[0] <= 3 && s[1] <= 3 && check_if_sort_a(a, s[0]) == 0)
 		sort_three_a_full(a, b, s, str);
-	else
-		ps_swap_both(a, b, str, 't');
+//	else
+//		ps_swap_both(a, b, str, 't');
 	if (s[0] > 2 && check_if_sort_a(a, s[0]) == 0)
 		sort_a_part(a, b, str, s);
 //	if (s[0] <= 3 && s[1] <= 3 && check_if_sort_b(b, s[1]) == 0)

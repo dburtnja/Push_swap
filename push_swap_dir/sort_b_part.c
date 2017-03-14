@@ -76,5 +76,6 @@ void	sort_b_part(int *a, int *b, char **str, int *s)
 		ps_push_stack(b, a, str, "pa\n");
 		size[1]--;
 	}
+	s[0] += s[1];
 	s[1] = 0;
 }

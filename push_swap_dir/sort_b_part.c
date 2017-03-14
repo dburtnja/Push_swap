@@ -52,7 +52,7 @@ void	sort_b_part(int *a, int *b, char **str, int *s)
 	int	size[2];
 
 	midd[2] = *b == s[1];
-	midd[0] = find_midd_nbr(b, s[1], b[0] % 2 ? 0 : 1);
+	midd[0] = find_midd_nbr(b, s[1], b[0] % 2 ? 0 : 1); //b[0] % 2 ? 0 : 1
 	midd[1] = 0;
 	size[0] = *a;
 	while (1)

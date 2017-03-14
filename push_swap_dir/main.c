@@ -36,11 +36,14 @@ void	if_same(int *tab)
 
 int		check_if_num(char *str)
 {
-	int	nbr;
+	int		nbr;
+	char	*s_nbr;
 
 	nbr = ft_atoi(str);
-	if (ft_strcmp(ft_itoa(nbr), str) != 0)
+	s_nbr = ft_itoa(nbr);
+	if (ft_strcmp(s_nbr, str) != 0)
 		error();
+	ft_strdel(&s_nbr);
 	return (nbr);
 }
 

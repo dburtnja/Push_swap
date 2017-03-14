@@ -97,6 +97,10 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 		midd[1]--;
 	}
 	try_rec(a, b, str, size);
+	if (s[0] > *a)
+		s[0] = *a;
+	if (s[1] > *b)
+		s[1] = *b;
 	while (size[1] > 0)
 	{
 		ps_push_stack(b, a, str, "pa\n");

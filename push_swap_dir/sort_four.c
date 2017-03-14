@@ -55,8 +55,8 @@ void	sort_four_a(int *a, int *b, char **str)
 	f = 0;
 	if (a[0] == 4)
 	{
-		f = 1;
 		help_sort_four_a(a, b, str);
+		f = a[0] == 3 ? 1 : 0;
 	}
 	if (a[0] == 3 && check_if_sort_a(a, a[0]) == 0)
 		sort_three_a(a, b, str);

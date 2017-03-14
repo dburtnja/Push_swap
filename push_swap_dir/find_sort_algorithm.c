@@ -26,7 +26,7 @@ void	try_rec(int *a, int *b, char **str, int *s)
 		sort_b_part(a, b, str, s);
 //	if (s[0] <= 3 && s[1] <= 3 && check_if_sort_b(b, s[1]) == 0)
 //		sort_three_a_full(a, b, s, str);
-//	ps_swap_both(a, b, str, 't');
+	ps_swap_both(a, b, str, 't');
 }
 
 void	nbr_of_operations(char *str)

@@ -74,7 +74,7 @@ int		main(int argc, char **argv)
 		check_flag(&flags[0], &argv, &argc);
 		b = (int*)ft_memalloc(sizeof(int) * (argc));
 		first_move_a(argc, argv, &flags[0], b);
+		free(b);
 	}
-	free(b);
 	return (0);
 }

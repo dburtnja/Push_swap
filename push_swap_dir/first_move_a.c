@@ -62,7 +62,7 @@ int		first_move_a(int argc, char **argv, int *flags, int *b)
 	i = 0;
 	last.size = INT_MAX;
 	last.operations = NULL;
-	while (i < argc || (last.size > 5300 && argc >= 500))
+	while ((i < argc && argc < 110) || (argc == 500 && last.size > 5300))
 	{
 		str = ft_strdup("");
 		a = make_tab(argc, argv);

@@ -33,36 +33,44 @@ int		find_instructions_b(int *a, int *b, char **str, int *midd)
 	return (1);
 }
 
+void	return_stack(int *stack, char **str, int *midd, char *operation)
+{
+	while (midd[1] && !midd[2])
+	{
+		ps_rev_rotate_stack(stack, str, operation);
+		midd[1]--;
+	}
+}
+
+void	push_b_stack(int *a, int *b, char **str, int *size)
+{
+	while (size[1] > 0)
+	{
+		ps_push_stack(b, a, str, "pa\n");
+		size[1]--;
+	}
+}
+
 void	sort_b_part(int *a, int *b, char **str, int *s)
 {
 	int	midd[3];
 	int	size[2];
 
 	midd[2] = *b == s[1];
-	midd[0] = find_midd_nbr(b, s[1], 0); //b[0] % 2 ? 0 : 1
+	midd[0] = find_midd_nbr(b, s[1], 0);
 	midd[1] = 0;
 	size[0] = *a;
 	while (1)
 	{
-	//	if (check_if_sort_b(b, b[0]) && !if_a_has_b_part(b[1], a))
-	//		break ;
 		if (find_instructions_b(a, b, str, &midd[0]))
 			break ;
 	}
 	size[0] = *a - size[0] > 0 ? *a - size[0] : *a;
 	size[1] = s[1] - size[0];
-	while (midd[1] && !midd[2])
-	{
-		ps_rev_rotate_stack(b, str, "rrb\n");
-		midd[1]--;
-	}
+	return_stack(b, str, &midd[0], "rrb\n");
 	try_rec(a, b, str, size);
 	ps_swap_both(a, b, str, 'a');
-	while (size[1] > 0)
-	{
-		ps_push_stack(b, a, str, "pa\n");
-		size[1]--;
-	}
+	push_b_stack(a, b, str, &size[0]);
 	s[0] += s[1];
 	s[1] = 0;
 }

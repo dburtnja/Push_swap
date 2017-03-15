@@ -12,28 +12,6 @@
 
 #include "../push_swap.h"
 
-int		find_rr(int *a, int midd)
-{
-	int	i;
-	int	left;
-	int	right;
-
-	i = 1;
-	left = 0;
-	right = 0;
-	while (i - 1 < a[0])
-	{
-		if (a[i] > midd && left == 0)
-			left = i;
-		else if (a[i] > midd)
-			right = i + 1;
-		i++;
-	}
-	if (left <= right)
-		return (0);
-	return (1);
-}
-
 int		find_midd_nbr(int *a, int len, int stack)
 {
 	int	*sort;
@@ -59,8 +37,6 @@ int		find_instructions_a(int *a, int *b, char **str, int *midd)
 	i = 1;
 	if (a[1] < midd[0])
 		ps_push_stack(a, b, str, "pb\n");
-	else if (midd[2] && midd[3])
-		ps_rev_rotate_stack(a, str, "rra\n");
 	else
 	{
 		midd[1]++;
@@ -82,7 +58,6 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 
 	midd[2] = *a == *s;
 	midd[0] = find_midd_nbr(a, s[0], 1);
-	midd[3] = 0;
 	midd[1] = 0;
 	size[1] = *b;
 	while (1)
@@ -94,20 +69,10 @@ void	sort_a_part(int *a, int *b, char **str, int *s)
 	}
 	size[1] = *b - size[1] > 0 ? *b - size[1] : *b;
 	size[0] = s[0] - size[1];
-	while (midd[1] && !midd[2])
-	{
-		ps_rev_rotate_stack(a, str, "rra\n");
-		midd[1]--;
-	}
+	return_stack(a, str, &midd[0], "rra\n");
 	try_rec(a, b, str, size);
 	ps_swap_both(a, b, str, 'a');
-	while (size[1] > 0)
-	{
-		ps_push_stack(b, a, str, "pa\n");
-		size[1]--;
-	}
-	if (s[0] > *a)
-		s[0] = *a;
-	if (s[1] > *b)
-		s[1] = *b;
+	push_b_stack(a, b, str, &size[0]);
+	s[0] = s[0] > *a ? *a : s[0];
+	s[1] = s[1] > *b ? *b : s[1];
 }

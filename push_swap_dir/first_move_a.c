@@ -1,6 +1,15 @@
-//
-// Created by Denys on 15.03.2017.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   first_move_a.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/15 12:47:41 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/03/15 12:48:22 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	help_first_move_a(int i, int j, char **str, int *a)
@@ -36,7 +45,6 @@ void	print_result(t_res last, int *f)
 	}
 	free(last.stack);
 	ft_strdel(&(last.operations));
-
 }
 
 void	write_to_last(t_res *last, int new, char *str, int *a)

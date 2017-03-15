@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 20:20:58 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/02/25 20:21:06 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/15 12:54:12 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_int_stack(int *a)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	while (a[0] > i - 1)
@@ -26,9 +26,9 @@ void	print_int_stack(int *a)
 	ft_putendl("");
 }
 
-int		check_if_sort_a(int	*a, int len)
+int		check_if_sort_a(int *a, int len)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	while (i < len)
@@ -42,7 +42,7 @@ int		check_if_sort_a(int	*a, int len)
 
 int		check_if_sort_b(int *b, int len)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	while (i < len)
@@ -54,9 +54,9 @@ int		check_if_sort_b(int *b, int len)
 	return (1);
 }
 
-int 	if_b_has_a_part(int a, int *b)
+int		if_b_has_a_part(int a, int *b)
 {
-	int 	i;
+	int	i;
 
 	i = 1;
 	while (i <= b[0])

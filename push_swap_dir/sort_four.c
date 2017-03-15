@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 17:57:41 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/03/11 18:05:08 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/03/15 12:57:03 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	help_sort_four_a(int *a, int *b, char **str)
 
 void	sort_four_a(int *a, int *b, char **str)
 {
-	int 	f;
+	int	f;
 
 	f = 0;
 	if (a[0] == 4)
@@ -65,39 +65,3 @@ void	sort_four_a(int *a, int *b, char **str)
 	if (f)
 		ps_push_stack(b, a, str, "pa\n");
 }
-/*
-void	sort_three_b(int *a, int *b, char **str)
-{
-	if (b[1] < b[2] && b[1] < b[3])
-		ps_rotate_stack(b, str, "rb\n");
-	if (b[1] < b[2])
-		ps_swap_both(a, b, str, 'b');
-	if (check_if_sort_b(b, *b) == 0)
-		ps_rev_rotate_stack(b, str, "rrb\n");
-	if (check_if_sort_b(b, *b) == 0)
-		ps_swap_both(a, b, str, 'b');
-}
-
-void	sort_five_b(int *a, int *b, char **str)
-{
-	int 	nbr[2];
-	int 	*sort;
-
-	if (b[0] == 4)
-	{
-		sort = bubble_sort(new_int_tab(b));
-		nbr[0] = sort[4];
-		if (sort[4] == b[4])
-			ps_rev_rotate_stack(b, str, "rrb\n");
-		free(sort);
-		while (1)
-		{
-			if (find_instructions_b(a, b, str, &nbr[0]))
-				break;
-		}
-	}
-	if (b[0] == 3 && check_if_sort_b(b, b[0]) == 0)
-		sort_three_b(a, b, str);
-	if (b[1] < b[2])
-		ps_swap_stack(b, str, "sb\n");
-}*/

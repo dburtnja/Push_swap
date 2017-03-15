@@ -85,6 +85,9 @@ void					check_flag(int *flag, char ***argv, int *argc);
 int						nbr_of_operations(char *str);
 void					first_move_a(int argc, char **argv, int *flags, int *b);
 int						*make_tab(int size, char **arg);
+void					return_stack(int *stack, char **str, int *midd,
+									 char *operation);
+void					push_b_stack(int *a, int *b, char **str, int *size);
 
 
 #endif

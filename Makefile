@@ -32,6 +32,7 @@ P_SRC = push_swap_dir/bubble_sort.c\
 		push_swap_dir/sort_a_part.c\
 		push_swap_dir/sort_b_part.c\
 		push_swap_dir/sort_three.c\
+		push_swap_dir/first_move_a.c\
 		push_swap_dir/sort_four.c
 
 C_OBJ = $(C_SRC:.c=.o)

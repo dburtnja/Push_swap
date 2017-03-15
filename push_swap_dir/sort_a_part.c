@@ -43,8 +43,11 @@ int		find_midd_nbr(int *a, int len, int stack)
 	sort = new_int_tab(a);
 	*sort = len;
 	bubble_sort(sort);
-	i = sort[0] / 2 + (stack ? 1 : 0);
-	ret = sort[i];
+	i = sort[0] / 2 + stack;
+	if (sort[0] > i && i > 0)
+		ret = sort[i];
+	else
+		ret = sort[sort[0] / 2 + 1];
 	free(sort);
 	return (ret);
 }

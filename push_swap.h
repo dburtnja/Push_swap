@@ -60,7 +60,7 @@ void					apply_to_both(t_doub_lst **a, t_doub_lst **b,
 void					print_stacks(t_doub_lst *a, t_doub_lst *b, int flag,
 							int fd);
 
-int						find_sort_algorithm(int *a, int *b, char **str, int *f);
+int						find_sort_algorithm(int *a, int *b, char **str);
 int						check_if_sort_a(int	*a, int len);
 int						check_if_sort_b(int	*b, int len);
 void					print_int_stack(int *a);
@@ -83,7 +83,7 @@ int						find_instructions_b(int *a, int *b, char **str,
 void					sort_three_a_full(int *a, int *b, int *s, char **str);
 void					check_flag(int *flag, char ***argv, int *argc);
 int					nbr_of_operations(char *str);
-int						first_move_a(int argc, char **argv, int *flags, int *b);
+void					first_move_a(int argc, char **argv, int *flags, int *b);
 int						*make_tab(int size, char **arg);
 
 

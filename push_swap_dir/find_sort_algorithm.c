@@ -39,7 +39,7 @@ int		nbr_of_operations(char *str)
 	return (i);
 }
 
-int		find_sort_algorithm(int *a, int *b, char **str, int *f)
+int		find_sort_algorithm(int *a, int *b, char **str)
 {
 	int		size[2];
 

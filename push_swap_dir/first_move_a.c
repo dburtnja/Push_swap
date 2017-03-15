@@ -51,7 +51,7 @@ void	write_to_last(t_res *last, int new, char *str, int *a)
 	last->operations = str;
 }
 
-int		first_move_a(int argc, char **argv, int *flags, int *b)
+void	first_move_a(int argc, char **argv, int *flags, int *b)
 {
 	int		i;
 	int		*a;
@@ -67,7 +67,7 @@ int		first_move_a(int argc, char **argv, int *flags, int *b)
 		str = ft_strdup("");
 		a = make_tab(argc, argv);
 		help_first_move_a(i, i, &str, a);
-		if ((new = find_sort_algorithm(a, b, &str, &flags[0])) < last.size)
+		if ((new = find_sort_algorithm(a, b, &str)) < last.size)
 			write_to_last(&last, new, str, a);
 		else
 		{
